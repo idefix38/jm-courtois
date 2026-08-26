@@ -1,0 +1,74 @@
+services:
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - cms
+      - frontend
+    networks:
+      - app_network
+
+  cms:
+    build:
+      context: ./cms/docker
+      args:
+        ARCH: ${ARCH:-amd}
+    ports:
+      - "9231:9231"
+      - "1337:1337"
+    command: npm run develop -- --watch-admin
+    env_file: ./cms/.env
+    volumes:
+      - ./cms/:/usr/app/
+      - ./cms/.docker_node_modules:/usr/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - install_mode
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=${POSTGRES_DB:-jm-courtois}
+      - DATABASE_USERNAME=${POSTGRES_USER:-user}
+      - DATABASE_PASSWORD=${POSTGRES_PASSWORD:-password}
+    networks:
+      - app_network
+      - postgres-network
+
+  frontend:
+    build:
+      context: ./frontend
+      target: development
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_STRAPI_URL: http://cms.jm-courtois.local
+      STRAPI_API_URL: http://cms:1337
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    depends_on:
+      - cms
+    networks:
+      - app_network
+
+  postgres:
+    env_file: .env
+    image: postgres:17
+    restart: always
+    volumes:
+      - postgres-shared-data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+volumes:
+  postgres-shared-data:
+
+networks:
+  app_network:
+    driver: bridge
+  postgres-network:
+    driver: bridge

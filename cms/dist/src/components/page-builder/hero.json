@@ -1,0 +1,42 @@
+{
+    "collectionName": "components_page_builder_heroes",
+    "info": {
+        "displayName": "Hero",
+        "icon": "grid"
+    },
+    "options": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "default": "Mon Titre",
+            "required": true
+        },
+        "Accroche": {
+            "type": "text",
+            "maxLength": 200,
+            "required": true
+        },
+        "image": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "Bouton1": {
+            "type": "component",
+            "component": "component.bouton-cta",
+            "repeatable": false
+        },
+        "Bouton2": {
+            "type": "component",
+            "component": "component.bouton-cta",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_component_bouton_ctas",
+  "info": {
+    "displayName": "BoutonCta"
+  },
+  "options": {},
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "Url": {
+      "type": "string",
+      "required": true
+    },
+    "Style": {
+      "type": "enumeration",
+      "enum": [
+        "Primaire",
+        "Secondaire"
+      ]
+    }
+  },
+  "config": {}
+}

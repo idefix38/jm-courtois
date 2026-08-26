@@ -1,0 +1,32 @@
+{
+  "name": "jm-courtois-cms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "strapi build",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^7.1.1",
+    "@strapi/strapi": "^5.0.0",
+    "@strapi/plugin-documentation": "^5.50.1",
+    "@strapi/plugin-seo": "^2.0.9",
+    "@strapi/plugin-users-permissions": "^5.0.0",
+    "@strapi/plugin-cloud": "^5.0.0",    
+    "pg": "^8.11.0"    ,
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.4",
+    "styled-components": "^6.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  }
+}

@@ -1,0 +1,62 @@
+{
+    "kind": "collectionType",
+    "collectionName": "livres",
+    "info": {
+        "singularName": "livre",
+        "pluralName": "livres",
+        "displayName": "Livre",
+        "description": "Collection de livres (schema.org/Book)"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "Slug": {
+            "type": "uid",
+            "targetField": "Titre",
+            "required": true
+        },
+        "Auteur": {
+            "type": "string",
+            "required": true
+        },
+        "Editeur": {
+            "type": "string"
+        },
+        "DatePublication": {
+            "type": "date"
+        },
+        "ISBN": {
+            "type": "string"
+        },
+        "Resume": {
+            "type": "richtext"
+        },
+        "Couverture": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": ["images"]
+        },
+        "Genre": {
+            "type": "string"
+        },
+        "NombreDePages": {
+            "type": "integer"
+        },
+        "Langue": {
+            "type": "string",
+            "default": "fr"
+        },
+        "Seo": {
+            "type": "component",
+            "component": "shared.seo",
+            "repeatable": false
+        }
+    }
+}
