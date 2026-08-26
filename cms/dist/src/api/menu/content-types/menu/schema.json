@@ -1,6 +1,6 @@
 {
-    "kind": "collectionType",
-    "collectionName": "menus",
+    "kind": "singleType",
+    "collectionName": "menu",
     "info": {
         "singularName": "menu",
         "pluralName": "menus",
@@ -11,13 +11,10 @@
     },
     "pluginOptions": {},
     "attributes": {
-        "Titre": {
-            "type": "string",
-            "required": true
-        },
-        "Url": {
-            "type": "string",
-            "required": true
+        "Items": {
+            "type": "component",
+            "component": "shared.menu-item",
+            "repeatable": true
         }
     }
 }

@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+    color: #24333A;
+  }
+
+  body {
+    font-family: var(--font-source-sans), system-ui, sans-serif;
+    color: #1E1E1E;
+    background-color: #F6F6F2;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+
+  /* Classes custom border/text pour les couleurs de la charte — garanties même en build Docker */
+  .border-vert-profond { border-color: #24333A; }
+  .border-vert-sauge   { border-color: #45645B; }
+  .border-vert-gris    { border-color: #7A8D7D; }
+  .border-beige        { border-color: #C8B99A; }
+  .hover\:border-vert-gris:hover  { border-color: #7A8D7D; }
+  .hover\:border-vert-sauge:hover { border-color: #45645B; }
+  .hover\:border-beige:hover      { border-color: #C8B99A; }
+  .hover\:text-vert-profond:hover { color: #24333A; }
+  .text-vert-gris  { color: #7A8D7D; }
+}

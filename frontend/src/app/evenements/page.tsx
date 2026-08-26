@@ -1,8 +1,20 @@
 import type { Metadata } from 'next';
-import { getEvents } from '@/lib/strapi';
-import Image from 'next/image';
-import { getStrapiMedia } from '@/lib/strapi';
-import type { EventAttributes } from '@/types/strapi';
+
+export const metadata: Metadata = {
+  title: 'Événements — JM Courtois',
+  description: 'Retrouvez tous les événements et actualités de JM Courtois',
+};
+
+export default function EvenementsPage() {
+  return (
+    <div className="container mx-auto px-6 py-16 max-w-4xl">
+      <h1 className="text-4xl font-serif font-bold mb-12 text-center dark:text-white">
+        Événements & Actualités
+      </h1>
+      <p className="text-center text-gray-400 py-12">Aucun événement disponible pour le moment.</p>
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: 'Événements & Actualités — JM Courtois',

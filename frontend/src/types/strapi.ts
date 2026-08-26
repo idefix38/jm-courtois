@@ -1,97 +1,106 @@
+// Strapi v5 : pas de wrapper data.attributes — les champs sont directement sur l'objet
+
 export interface StrapiImage {
-    data: {
-        id: number;
-        attributes: {
-            url: string;
-            alternativeText: string | null;
-            width: number;
-            height: number;
-            formats?: Record<string, { url: string; width: number; height: number }>;
-        };
-    } | null;
+    id: number;
+    url: string;
+    alternativeText: string | null;
+    width: number;
+    height: number;
+    formats?: Record<string, { url: string; width: number; height: number }>;
+    // Point focal en pourcentage (0–100), fourni par strapi-plugin-focal-point
+    focalPoint?: { x: number; y: number } | null;
 }
 
-export interface StrapiRelation<T> {
-    data: T | null;
+export interface BoutonCta {
+    id: number;
+    Titre: string;
+    Url: string;
+    Style: 'Primaire' | 'Secondaire' | 'Link';
 }
 
-export interface StrapiCollection<T> {
-    data: Array<{ id: number; attributes: T }>;
-    meta: { pagination: { page: number; pageSize: number; pageCount: number; total: number } };
-}
-
-// ── Components ──────────────────────────────────────────────────────────────
+// ── Blocs page-builder ───────────────────────────────────────────────────────
 
 export interface HeroBlock {
-    __component: 'blocks.hero';
+    __component: 'page-builder.hero';
     id: number;
-    visual_header: StrapiImage;
-    tagline: string;
-    description?: string;
-    buy_button_label: string;
-    buy_button_url: string;
-    excerpt_button_label: string;
-    excerpt_button_url?: string;
-    __component: 'blocks.image-with-text';
-    id: number;
-    image: StrapiImage;
-    title?: string;
-    text?: string;
-    image_position: 'left' | 'right';
+    Titre: string;
+    Titre_Ligne_2?: string | null;
+    SousTitre?: string | null;
+    Accroche?: string | null;
+    image: StrapiImage | null;
+    Bouton1?: BoutonCta | null;
+    Bouton2?: BoutonCta | null;
 }
 
-export type Block = HeroBlock | RichTextBlock | ImageWithTextBlock;
+export interface TexteImageBlock {
+    __component: 'page-builder.texte-image';
+    id: number;
+    Titre: string;
+    Description?: string;
+    Image?: StrapiImage | null;
+    PositionImage?: 'Gauche' | 'Droite';
+    Cta?: BoutonCta | null;
+}
+
+export type Block = HeroBlock | TexteImageBlock;
+
+// ── Composants partagés ──────────────────────────────────────────────────────
 
 export interface SEO {
-    meta_title: string;
-    meta_description: string;
-    og_image?: StrapiImage;
+    metaTitle: string;
+    metaDescription: string;
+    canonicalURL?: string;
+    metaRobots?: 'Index' | 'NoIndex';
 }
 
 // ── Content Types ────────────────────────────────────────────────────────────
 
-export interface HomeAttributes {
-    seo?: SEO;
-    content: Block[];
+export interface HomeData {
+    id: number;
+    documentId: string;
+    dynamicZone: Block[];
+    Seo?: SEO | null;
 }
 
-export interface PageAttributes {
-    title: string;
-    slug: string;
-    seo?: SEO;
-    content: Block[];
+export interface PageData {
+    id: number;
+    documentId: string;
+    Titre: string;
+    Slug: string;
+    Contenu: Block[];
+    Seo?: SEO | null;
 }
 
-export interface BookAttributes {
-    title: string;
-    slug: string;
-    cover: StrapiImage;
-    tagline?: string;
-    description?: string;
-    amazon_url?: string;
-    excerpt_page?: StrapiRelation<{ slug: string }>;
-    publication_date?: string;
-    seo?: SEO;
-    content: Block[];
+export interface LivreData {
+    id: number;
+    documentId: string;
+    Titre: string;
+    Slug: string;
+    Auteur: string;
+    Editeur?: string;
+    DatePublication?: string;
+    ISBN?: string;
+    Resume?: string;
+    Couverture?: StrapiImage | null;
+    Genre?: string;
+    NombreDePages?: number;
+    Langue?: string;
+    Seo?: SEO | null;
 }
 
-export interface EventAttributes {
-    title: string;
-    slug: string;
-    date: string;
-    location?: string;
-    image?: StrapiImage;
-    description: string;
-    registration_url?: string;
+export interface MenuItemData {
+    id: number;
+    Titre: string;
+    Url: string;
 }
 
-export interface PressReviewAttributes {
-    author: string;
-    source: string;
-    quote: string;
-    rating?: number;
-    type: 'press' | 'reader';
-    published_at_source?: string;
-    source_url?: string;
-    book?: StrapiRelation<{ title: string; slug: string }>;
+export interface AvisData {
+    id: number;
+    documentId: string;
+    Titre: string;
+    Texte: string;
+    Note: number;
+    Prenom: string;
+    Date: string;
 }
+

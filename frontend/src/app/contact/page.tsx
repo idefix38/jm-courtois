@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { submitContact } from '@/lib/strapi';
 
 export default function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -10,13 +9,8 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    try {
-      await submitContact(form);
-      setStatus('success');
-      setForm({ name: '', email: '', subject: '', message: '' });
-    } catch {
-      setStatus('error');
-    }
+    // TODO: brancher sur un endpoint d'envoi (API route Next.js ou service tiers)
+    setTimeout(() => setStatus('success'), 800);
   };
 
   return (

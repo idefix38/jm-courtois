@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getBook, getBooks } from '@/lib/strapi';
+import { getLivre, getLivres, getStrapiMedia } from '@/lib/strapi';
 import Image from 'next/image';
-import Link from 'next/link';
-import { getStrapiMedia } from '@/lib/strapi';
-import DynamicZone from '@/components/blocks/DynamicZone';
-import type { BookAttributes } from '@/types/strapi';
+import type { LivreData } from '@/types/strapi';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -13,8 +10,8 @@ interface Props {
 
 export async function generateStaticParams() {
   try {
-    const res = await getBooks() as { data: Array<{ attributes: { slug: string } }> };
-    return res.data.map((book) => ({ slug: book.attributes.slug }));
+    const res = await getLivres() as { data: LivreData[] };
+    return (res.data ?? []).map((livre) => ({ slug: livre.Slug }));
   } catch {
     return [];
   }
@@ -23,75 +20,71 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
-    const res = await getBook(slug) as { data: Array<{ attributes: BookAttributes }> };
-    const book = res.data?.[0]?.attributes;
-    if (!book) return {};
+    const res = await getLivre(slug) as { data: LivreData[] };
+    const livre = res.data?.[0];
+    if (!livre) return {};
     return {
-      title: book.seo?.meta_title ?? `${book.title} — JM Courtois`,
-      description: book.seo?.meta_description ?? book.tagline ?? '',
+      title: livre.Seo?.metaTitle ?? `${livre.Titre} — JM Courtois`,
+      description: livre.Seo?.metaDescription ?? '',
     };
   } catch {
     return {};
   }
 }
 
-export default async function BookPage({ params }: Props) {
+export default async function LivrePage({ params }: Props) {
   const { slug } = await params;
 
-  let book: BookAttributes | undefined;
+  let livre: LivreData | undefined;
   try {
-    const res = await getBook(slug) as { data: Array<{ attributes: BookAttributes }> };
-    book = res.data?.[0]?.attributes;
+    const res = await getLivre(slug) as { data: LivreData[] };
+    livre = res.data?.[0];
   } catch {
     notFound();
   }
 
-  if (!book) notFound();
+  if (!livre) notFound();
 
-  const coverUrl = getStrapiMedia(book.cover?.data?.attributes?.url ?? null);
-  const excerptSlug = book.excerpt_page?.data?.slug;
+  const coverUrl = getStrapiMedia(livre.Couverture?.url ?? null);
 
   return (
     <>
-      {/* En-tête livre */}
-      <section className="bg-gray-900 text-white">
+      <section className="bg-gray-900 dark:bg-black text-white">
         <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row gap-12 items-center">
           {coverUrl && (
             <div className="relative w-48 md:w-64 flex-shrink-0 aspect-[2/3] shadow-2xl">
-              <Image src={coverUrl} alt={book.title} fill className="object-cover rounded" />
+              <Image
+                src={coverUrl}
+                alt={livre.Couverture?.alternativeText ?? livre.Titre}
+                fill
+                className="object-cover rounded"
+              />
             </div>
           )}
           <div>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{book.title}</h1>
-            {book.tagline && (
-              <p className="text-xl italic text-gray-300 mb-6">{book.tagline}</p>
+            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-2">{livre.Titre}</h1>
+            {livre.Auteur && <p className="text-lg text-gray-300 mb-1">{livre.Auteur}</p>}
+            {livre.Editeur && <p className="text-sm text-gray-400 mb-4">{livre.Editeur}</p>}
+            {livre.Resume && (
+              <div
+                className="prose prose-invert prose-sm max-w-xl mb-6"
+                dangerouslySetInnerHTML={{ __html: livre.Resume }}
+              />
             )}
-            <div className="flex flex-wrap gap-4">
-              {book.amazon_url && (
-                <a
-                  href={book.amazon_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded transition"
-                >
-                  Acheter ce Livre
-                </a>
+            <dl className="text-sm text-gray-400 space-y-1">
+              {livre.DatePublication && (
+                <div><dt className="inline font-medium text-gray-200">Parution : </dt><dd className="inline">{new Date(livre.DatePublication).toLocaleDateString('fr-FR')}</dd></div>
               )}
-              {excerptSlug && (
-                <Link
-                  href={`/${excerptSlug}`}
-                  className="border border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-3 rounded transition"
-                >
-                  Lire un extrait
-                </Link>
+              {livre.ISBN && (
+                <div><dt className="inline font-medium text-gray-200">ISBN : </dt><dd className="inline">{livre.ISBN}</dd></div>
               )}
-            </div>
+              {livre.NombreDePages && (
+                <div><dt className="inline font-medium text-gray-200">Pages : </dt><dd className="inline">{livre.NombreDePages}</dd></div>
+              )}
+            </dl>
           </div>
         </div>
       </section>
-
-      {/* Zone dynamique du livre */}
-      {book.content?.length > 0 && <DynamicZone blocks={book.content} />}
     </>
   );
 }

@@ -23,7 +23,8 @@
     "Contenu": {
       "type": "dynamiczone",
       "components": [
-        "page-builder.hero"
+        "page-builder.hero",
+        "page-builder.texte-image"
       ]
     },
     "Seo": {

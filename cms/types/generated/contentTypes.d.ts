@@ -494,7 +494,9 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    dynamicZone: Schema.Attribute.DynamicZone<['page-builder.hero']>;
+    dynamicZone: Schema.Attribute.DynamicZone<
+      ['page-builder.hero', 'page-builder.texte-image']
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -546,8 +548,8 @@ export interface ApiLivreLivre extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
-  collectionName: 'menus';
+export interface ApiMenuMenu extends Struct.SingleTypeSchema {
+  collectionName: 'menu';
   info: {
     displayName: 'Menu';
     pluralName: 'menus';
@@ -560,15 +562,14 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Items: Schema.Attribute.Component<'shared.menu-item', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::menu.menu'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -583,7 +584,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Contenu: Schema.Attribute.DynamicZone<['page-builder.hero']>;
+    Contenu: Schema.Attribute.DynamicZone<
+      ['page-builder.hero', 'page-builder.texte-image']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

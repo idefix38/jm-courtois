@@ -1,19 +1,18 @@
 import type { Block } from '@/types/strapi';
 import HeroBlock from './HeroBlock';
-import RichTextBlock from './RichTextBlock';
-import ImageWithTextBlock from './ImageWithTextBlock';
+import TexteImageBlock from './TexteImageBlock';
 
 export default function DynamicZone({ blocks }: { blocks: Block[] }) {
+  if (!blocks?.length) return null;
+
   return (
     <>
       {blocks.map((block) => {
         switch (block.__component) {
-          case 'blocks.hero':
+          case 'page-builder.hero':
             return <HeroBlock key={block.id} block={block} />;
-          case 'blocks.rich-text':
-            return <RichTextBlock key={block.id} block={block} />;
-          case 'blocks.image-with-text':
-            return <ImageWithTextBlock key={block.id} block={block} />;
+          case 'page-builder.texte-image':
+            return <TexteImageBlock key={block.id} block={block} />;
           default:
             return null;
         }

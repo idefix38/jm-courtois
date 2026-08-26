@@ -17,7 +17,8 @@
             "type": "enumeration",
             "enum": [
                 "Primaire",
-                "Secondaire"
+                "Secondaire",
+                "Link"
             ]
         }
     },

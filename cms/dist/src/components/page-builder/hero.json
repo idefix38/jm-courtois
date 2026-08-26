@@ -11,10 +11,11 @@
             "default": "Mon Titre",
             "required": true
         },
-        "Accroche": {
-            "type": "text",
-            "maxLength": 200,
-            "required": true
+        "Titre_Ligne_2": {
+            "type": "string"
+        },
+        "SousTitre": {
+            "type": "string"
         },
         "image": {
             "type": "media",

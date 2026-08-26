@@ -1,57 +1,61 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { getStrapiMedia } from '@/lib/strapi';
 import type { HeroBlock as HeroBlockType } from '@/types/strapi';
+import BoutonCta from '@/components/ui/BoutonCta';
 
 export default function HeroBlock({ block }: { block: HeroBlockType }) {
-  const imageUrl = getStrapiMedia(block.visual_header?.data?.attributes?.url ?? null);
-  const excerptSlug = block.excerpt_button_page?.data?.slug;
+  const imageUrl = getStrapiMedia(block.image?.url ?? null);
+  const tagline = block.SousTitre ?? block.Accroche;
+  const fp = block.image?.focalPoint;
+  // object-position positionne le crop vertical selon le point focal
+  const objectPosition = fp ? `${fp.x}% ${fp.y}%` : 'center 35%';
 
   return (
-    <section className="relative min-h-[80vh] flex items-center">
+    <section className="relative h-[500px] w-full overflow-hidden">
+
+      {/* fill + object-cover : scale par la largeur pour les images paysage, crop vertical uniquement */}
       {imageUrl && (
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src={imageUrl}
-            alt={block.visual_header?.data?.attributes?.alternativeText ?? block.tagline}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        <Image
+          src={imageUrl}
+          alt={block.image?.alternativeText ?? block.Titre}
+          fill
+          className="object-cover"
+          style={{ objectPosition }}
+          priority
+        />
       )}
 
-      <div className="container mx-auto px-6 py-24 text-white">
-        <p className="text-xl md:text-3xl font-serif italic mb-8 max-w-2xl leading-relaxed">
-          {block.tagline}
-        </p>
-        {block.description && (
-          <p className="text-base md:text-lg mb-10 max-w-xl text-white/80">
-            {block.description}
-          </p>
-        )}
+      {/* Gradient + texte en overlay absolu */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent flex items-center">
+        <div className="container mx-auto px-8 md:px-16 py-24">
+          <div className="max-w-2xl">
 
-        <div className="flex flex-wrap gap-4">
-          {block.buy_button_url && (
-            <a
-              href={block.buy_button_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded transition"
-            >
-              {block.buy_button_label || 'Acheter ce Livre'}
-            </a>
+          <h1 className="font-serif italic text-3xl md:text-4xl lg:text-4xl leading-tight text-[#1E1E1E] mb-6">
+            {block.Titre}
+            {block.Titre_Ligne_2 && (
+              <>
+                <br />
+                {block.Titre_Ligne_2}
+              </>
+            )}
+          </h1>
+
+          {/* Séparateur beige */}
+          <div className="w-10 h-0.5 mb-6" style={{ backgroundColor: '#C8B99A' }} />
+
+          {tagline && (
+            <p className="font-display font-semibold text-xs uppercase tracking-[0.2em] text-[#1E1E1E]/70 mb-10">
+              {tagline}
+            </p>
           )}
-          {block.excerpt_button_url && (
-            <a
-              href={block.excerpt_button_url}
-              className="inline-block border border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-3 rounded transition"
-            >
-              {block.excerpt_button_label || 'Lire un extrait'}
-            </a>
-          )}
+
+          <div className="flex flex-wrap items-center gap-4">
+            {block.Bouton1 && <BoutonCta bouton={block.Bouton1} />}
+            {block.Bouton2 && <BoutonCta bouton={block.Bouton2} />}
+          </div>
+
         </div>
+      </div>
       </div>
     </section>
   );

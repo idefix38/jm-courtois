@@ -43,7 +43,7 @@ services:
       context: ./frontend
       target: development
     restart: unless-stopped
-    env_file: .env
+    env_file: ./frontend/.env
     environment:
       NEXT_PUBLIC_STRAPI_URL: http://cms.jm-courtois.local
       STRAPI_API_URL: http://cms:1337
