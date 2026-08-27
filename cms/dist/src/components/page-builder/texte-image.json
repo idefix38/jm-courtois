@@ -7,28 +7,54 @@
     },
     "options": {},
     "attributes": {
+        "PreTitre": {
+            "type": "string"
+        },
         "Titre": {
             "type": "string",
             "required": true
         },
+        "SousTitre": {
+            "type": "string"
+        },
         "Description": {
-            "type": "richtext"
+            "type": "richtext",
+            "required": true
         },
         "Image": {
             "type": "media",
             "multiple": false,
-            "required": false,
-            "allowedTypes": ["images"]
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
         },
         "PositionImage": {
             "type": "enumeration",
-            "enum": ["Gauche", "Droite"],
-            "default": "Droite"
+            "default": "Droite",
+            "enum": [
+                "Gauche",
+                "Droite"
+            ]
         },
-        "Cta": {
+        "Bouton1": {
             "type": "component",
             "component": "component.bouton-cta",
             "repeatable": false
+        },
+        "Bouton2": {
+            "type": "component",
+            "component": "component.bouton-cta",
+            "repeatable": true
+        },
+        "Fond": {
+            "type": "enumeration",
+            "enum": [
+                "Uni",
+                "Montagne",
+                "Fleurs",
+                "Nuage"
+            ]
         }
     }
 }

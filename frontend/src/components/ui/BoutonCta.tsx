@@ -8,6 +8,7 @@ const styles: Record<BoutonCtaType['Style'], React.CSSProperties> = {
 };
 
 export default function BoutonCta({ bouton }: { bouton: BoutonCtaType }) {
+  if (!bouton.Url) return null;
   return (
     <Link
       href={bouton.Url}

@@ -14,7 +14,7 @@
             "name": "Apache 2.0",
             "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "x-generation-date": "2026-08-26T20:20:56.034Z"
+        "x-generation-date": "2026-08-27T08:37:09.688Z"
     },
     "x-strapi-config": {
         "plugins": [
@@ -5218,7 +5218,13 @@
                             "page-builder.texte-image"
                         ]
                     },
+                    "PreTitre": {
+                        "type": "string"
+                    },
                     "Titre": {
+                        "type": "string"
+                    },
+                    "SousTitre": {
                         "type": "string"
                     },
                     "Description": {
@@ -5403,8 +5409,23 @@
                             "Droite"
                         ]
                     },
-                    "Cta": {
+                    "Bouton1": {
                         "$ref": "#/components/schemas/ComponentBoutonCtaComponent"
+                    },
+                    "Bouton2": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ComponentBoutonCtaComponent"
+                        }
+                    },
+                    "Fond": {
+                        "type": "string",
+                        "enum": [
+                            "Uni",
+                            "Montagne",
+                            "Fleurs",
+                            "Nuage"
+                        ]
                     }
                 }
             },

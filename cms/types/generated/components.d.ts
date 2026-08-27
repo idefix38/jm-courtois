@@ -39,11 +39,15 @@ export interface PageBuilderTexteImage extends Struct.ComponentSchema {
     icon: 'layout';
   };
   attributes: {
-    Cta: Schema.Attribute.Component<'component.bouton-cta', false>;
-    Description: Schema.Attribute.RichText;
-    Image: Schema.Attribute.Media<'images'>;
+    Bouton1: Schema.Attribute.Component<'component.bouton-cta', false>;
+    Bouton2: Schema.Attribute.Component<'component.bouton-cta', true>;
+    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Fond: Schema.Attribute.Enumeration<['Uni', 'Montagne', 'Fleurs', 'Nuage']>;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     PositionImage: Schema.Attribute.Enumeration<['Gauche', 'Droite']> &
       Schema.Attribute.DefaultTo<'Droite'>;
+    PreTitre: Schema.Attribute.String;
+    SousTitre: Schema.Attribute.String;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

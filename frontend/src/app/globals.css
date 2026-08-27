@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html, body {
+    background-color: #fff;
     scroll-behavior: smooth;
   }
 
@@ -15,7 +16,7 @@
   body {
     font-family: var(--font-source-sans), system-ui, sans-serif;
     color: #1E1E1E;
-    background-color: #F6F6F2;
+    background-color: #FFF;
   }
 
   a {

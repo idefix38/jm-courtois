@@ -35,11 +35,15 @@ export interface HeroBlock {
 export interface TexteImageBlock {
     __component: 'page-builder.texte-image';
     id: number;
+    PreTitre?: string | null;
     Titre: string;
+    SousTitre?: string | null;
     Description?: string;
     Image?: StrapiImage | null;
     PositionImage?: 'Gauche' | 'Droite';
-    Cta?: BoutonCta | null;
+    Bouton1?: BoutonCta | null;
+    Bouton2?: BoutonCta | null;
+    Fond?: 'Uni' | 'Montagne' | 'Fleurs' | 'Nuage' | null;
 }
 
 export type Block = HeroBlock | TexteImageBlock;

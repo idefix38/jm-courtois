@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="flex flex-col min-h-screen antialiased">
         <ThemeProvider>
-          <div className="w-full max-w-[1440px] mx-auto flex flex-col min-h-screen">
+          <div className="w-full max-w-[1024px] mx-auto flex flex-col min-h-screen">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
