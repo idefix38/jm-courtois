@@ -53,6 +53,18 @@
       "type": "string",
       "default": "fr"
     },
+    "LienAmazon": {
+      "type": "string"
+    },
+    "LienFnac": {
+      "type": "string"
+    },
+    "LienEditeur": {
+      "type": "string"
+    },
+    "UrlSiteEditeur": {
+      "type": "string"
+    },
     "Seo": {
       "type": "component",
       "component": "shared.seo",

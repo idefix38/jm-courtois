@@ -14,7 +14,7 @@
             "name": "Apache 2.0",
             "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "x-generation-date": "2026-08-28T09:34:06.234Z"
+        "x-generation-date": "2026-08-28T10:32:17.462Z"
     },
     "x-strapi-config": {
         "plugins": [
@@ -5636,6 +5636,18 @@
                             "Langue": {
                                 "type": "string"
                             },
+                            "LienAmazon": {
+                                "type": "string"
+                            },
+                            "LienFnac": {
+                                "type": "string"
+                            },
+                            "LienEditeur": {
+                                "type": "string"
+                            },
+                            "UrlSiteEditeur": {
+                                "type": "string"
+                            },
                             "Seo": {
                                 "$ref": "#/components/schemas/SharedSeoComponent"
                             },
@@ -6865,6 +6877,18 @@
                     "Langue": {
                         "type": "string"
                     },
+                    "LienAmazon": {
+                        "type": "string"
+                    },
+                    "LienFnac": {
+                        "type": "string"
+                    },
+                    "LienEditeur": {
+                        "type": "string"
+                    },
+                    "UrlSiteEditeur": {
+                        "type": "string"
+                    },
                     "Seo": {
                         "$ref": "#/components/schemas/SharedSeoComponent"
                     },
@@ -7138,6 +7162,18 @@
                                     "type": "integer"
                                 },
                                 "Langue": {
+                                    "type": "string"
+                                },
+                                "LienAmazon": {
+                                    "type": "string"
+                                },
+                                "LienFnac": {
+                                    "type": "string"
+                                },
+                                "LienEditeur": {
+                                    "type": "string"
+                                },
+                                "UrlSiteEditeur": {
                                     "type": "string"
                                 },
                                 "Seo": {

@@ -539,6 +539,9 @@ export interface ApiLivreLivre extends Struct.CollectionTypeSchema {
     Genre: Schema.Attribute.String;
     ISBN: Schema.Attribute.String;
     Langue: Schema.Attribute.String & Schema.Attribute.DefaultTo<'fr'>;
+    LienAmazon: Schema.Attribute.String;
+    LienEditeur: Schema.Attribute.String;
+    LienFnac: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::livre.livre'> &
       Schema.Attribute.Private;
@@ -551,6 +554,7 @@ export interface ApiLivreLivre extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    UrlSiteEditeur: Schema.Attribute.String;
   };
 }
 

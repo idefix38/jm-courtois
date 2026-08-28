@@ -298,7 +298,7 @@
       "locale": null
     },
     {
-      "documentId": "iql1vbze8nu8hinvpi3j5shw",
+      "documentId": "w9nyg2vfpawtazv1thob1ijh",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -315,6 +315,10 @@
           "Genre",
           "NombreDePages",
           "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",
@@ -343,7 +347,7 @@
       "locale": null
     },
     {
-      "documentId": "ib066gzlrhdz4effh51ol99y",
+      "documentId": "x04yvg8vdbo1soxwxii0do3x",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -360,6 +364,10 @@
           "Genre",
           "NombreDePages",
           "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",
@@ -370,7 +378,7 @@
       "locale": null
     },
     {
-      "documentId": "iwgyw2ni1j0z96l3dbnub7c2",
+      "documentId": "g87g299phfo5i4k0vr2dsqwm",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -387,6 +395,10 @@
           "Genre",
           "NombreDePages",
           "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",

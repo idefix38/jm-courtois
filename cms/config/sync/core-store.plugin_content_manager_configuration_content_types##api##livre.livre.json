@@ -6,10 +6,10 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "relationOpenMode": "modal",
       "mainField": "Titre",
       "defaultSortBy": "Titre",
-      "defaultSortOrder": "ASC"
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
     },
     "metadatas": {
       "id": {
@@ -174,13 +174,70 @@
           "sortable": true
         }
       },
+      "LienAmazon": {
+        "edit": {
+          "label": "LienAmazon",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "LienAmazon",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "LienFnac": {
+        "edit": {
+          "label": "LienFnac",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "LienFnac",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "LienEditeur": {
+        "edit": {
+          "label": "LienEditeur",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "LienEditeur",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "UrlSiteEditeur": {
+        "edit": {
+          "label": "UrlSiteEditeur",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "UrlSiteEditeur",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "Seo": {
         "edit": {
           "label": "Seo",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "metaTitle"
         },
         "list": {
           "label": "Seo",
@@ -256,18 +313,8 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "Titre",
-        "Slug",
-        "Auteur"
-      ],
       "edit": [
         [
-          {
-            "name": "Titre",
-            "size": 6
-          },
           {
             "name": "Slug",
             "size": 6
@@ -275,11 +322,21 @@
         ],
         [
           {
-            "name": "Auteur",
+            "name": "Titre",
             "size": 6
           },
           {
+            "name": "Auteur",
+            "size": 6
+          }
+        ],
+        [
+          {
             "name": "Editeur",
+            "size": 6
+          },
+          {
+            "name": "UrlSiteEditeur",
             "size": 6
           }
         ],
@@ -303,10 +360,6 @@
           {
             "name": "Couverture",
             "size": 6
-          },
-          {
-            "name": "Genre",
-            "size": 6
           }
         ],
         [
@@ -315,7 +368,27 @@
             "size": 4
           },
           {
+            "name": "Genre",
+            "size": 6
+          }
+        ],
+        [
+          {
             "name": "Langue",
+            "size": 6
+          },
+          {
+            "name": "LienAmazon",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "LienEditeur",
+            "size": 6
+          },
+          {
+            "name": "LienFnac",
             "size": 6
           }
         ],
@@ -325,6 +398,12 @@
             "size": 12
           }
         ]
+      ],
+      "list": [
+        "id",
+        "Titre",
+        "Slug",
+        "Auteur"
       ]
     },
     "uid": "api::livre.livre"

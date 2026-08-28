@@ -112,6 +112,10 @@ export interface LivreData {
     Genre?: string;
     NombreDePages?: number;
     Langue?: string;
+    LienAmazon?: string | null;
+    LienFnac?: string | null;
+    LienEditeur?: string | null;
+    UrlSiteEditeur?: string | null;
     Seo?: SEO | null;
 }
 
