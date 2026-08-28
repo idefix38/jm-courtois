@@ -1,0 +1,166 @@
+{
+  "key": "plugin_content_manager_configuration_components::page-builder.hero",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "Titre",
+      "defaultSortBy": "Titre",
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Titre": {
+        "edit": {
+          "label": "Titre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Titre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Titre_Ligne_2": {
+        "edit": {
+          "label": "Titre_Ligne_2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Titre_Ligne_2",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "SousTitre": {
+        "edit": {
+          "label": "SousTitre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "SousTitre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "image",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "image",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Bouton1": {
+        "edit": {
+          "label": "Bouton1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Bouton1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Bouton2": {
+        "edit": {
+          "label": "Bouton2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Bouton2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "Titre",
+        "image",
+        "SousTitre"
+      ],
+      "edit": [
+        [
+          {
+            "name": "Titre",
+            "size": 6
+          },
+          {
+            "name": "Titre_Ligne_2",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "SousTitre",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Bouton1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Bouton2",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "image",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "page-builder.hero",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -46,7 +46,30 @@ export interface TexteImageBlock {
     Fond?: 'Uni' | 'Montagne' | 'Fleurs' | 'Nuage' | null;
 }
 
-export type Block = HeroBlock | TexteImageBlock;
+export interface CitationBlock {
+    __component: 'page-builder.citation';
+    id: number;
+    Titre?: string | null;
+    Description: string;
+}
+
+export interface TitreBlock {
+    __component: 'page-builder.titre';
+    id: number;
+    Titre: string;
+    SousTitre?: string | null;
+    Accroche?: string | null;
+}
+
+export interface TexteBlock {
+    __component: 'page-builder.texte';
+    id: number;
+    PreTitre?: string | null;
+    Titre: string;
+    Description: string;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 
@@ -70,7 +93,7 @@ export interface PageData {
     id: number;
     documentId: string;
     Titre: string;
-    Slug: string;
+    Url: string;
     Contenu: Block[];
     Seo?: SEO | null;
 }

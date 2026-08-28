@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_page_builder_citations",
+    "info": {
+        "displayName": "Citation",
+        "icon": "quote",
+        "description": "Bloc citation sur fond nuage"
+    },
+    "options": {},
+    "attributes": {
+        "Titre": {
+            "type": "string"
+        },
+        "Description": {
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
+            "required": true
+        }
+    }
+}

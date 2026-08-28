@@ -18,7 +18,11 @@
       "type": "string"
     },
     "Description": {
-      "type": "richtext",
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
       "required": true
     },
     "Image": {
@@ -45,7 +49,7 @@
     "Bouton2": {
       "type": "component",
       "component": "component.bouton-cta",
-      "repeatable": true
+      "repeatable": false
     },
     "Fond": {
       "type": "enumeration",

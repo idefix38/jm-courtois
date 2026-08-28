@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_page_builder_textes",
+    "info": {
+        "displayName": "Texte",
+        "icon": "align-left",
+        "description": "Bloc texte long avec illustration latérale"
+    },
+    "options": {},
+    "attributes": {
+        "PreTitre": {
+            "type": "string"
+        },
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "Description": {
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
+            "required": true
+        }
+    }
+}

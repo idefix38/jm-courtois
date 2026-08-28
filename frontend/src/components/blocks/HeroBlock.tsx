@@ -11,7 +11,7 @@ export default function HeroBlock({ block }: { block: HeroBlockType }) {
   const objectPosition = fp ? `${fp.x}% ${fp.y}%` : 'center 35%';
 
   return (
-    <section className="relative h-[500px] w-full overflow-hidden">
+    <section className="relative h-[500px] w-full overflow-hidden md:-mt-16 md:h-[calc(500px+4rem)]">
 
       {/* fill + object-cover : scale par la largeur pour les images paysage, crop vertical uniquement */}
       {imageUrl && (

@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_page_builder_titres",
+    "info": {
+        "displayName": "Titre",
+        "icon": "heading",
+        "description": "Bloc titre de page avec sous-titre et accroche optionnels"
+    },
+    "options": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "SousTitre": {
+            "type": "string"
+        },
+        "Accroche": {
+            "type": "text"
+        }
+    }
+}

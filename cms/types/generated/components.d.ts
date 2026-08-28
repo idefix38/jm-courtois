@@ -12,6 +12,26 @@ export interface ComponentBoutonCta extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderCitation extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_citations';
+  info: {
+    description: 'Bloc citation sur fond nuage';
+    displayName: 'Citation';
+    icon: 'quote';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Titre: Schema.Attribute.String;
+  };
+}
+
 export interface PageBuilderHero extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_heroes';
   info: {
@@ -31,6 +51,27 @@ export interface PageBuilderHero extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderTexte extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_textes';
+  info: {
+    description: 'Bloc texte long avec illustration lat\u00E9rale';
+    displayName: 'Texte';
+    icon: 'align-left';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    PreTitre: Schema.Attribute.String;
+    Titre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PageBuilderTexteImage extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_texte_images';
   info: {
@@ -40,13 +81,34 @@ export interface PageBuilderTexteImage extends Struct.ComponentSchema {
   };
   attributes: {
     Bouton1: Schema.Attribute.Component<'component.bouton-cta', false>;
-    Bouton2: Schema.Attribute.Component<'component.bouton-cta', true>;
-    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Bouton2: Schema.Attribute.Component<'component.bouton-cta', false>;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     Fond: Schema.Attribute.Enumeration<['Uni', 'Montagne', 'Fleurs', 'Nuage']>;
     Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     PositionImage: Schema.Attribute.Enumeration<['Gauche', 'Droite']> &
       Schema.Attribute.DefaultTo<'Droite'>;
     PreTitre: Schema.Attribute.String;
+    SousTitre: Schema.Attribute.String;
+    Titre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageBuilderTitre extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_titres';
+  info: {
+    description: 'Bloc titre de page avec sous-titre et accroche optionnels';
+    displayName: 'Titre';
+    icon: 'heading';
+  };
+  attributes: {
+    Accroche: Schema.Attribute.Text;
     SousTitre: Schema.Attribute.String;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -94,8 +156,11 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'component.bouton-cta': ComponentBoutonCta;
+      'page-builder.citation': PageBuilderCitation;
       'page-builder.hero': PageBuilderHero;
+      'page-builder.texte': PageBuilderTexte;
       'page-builder.texte-image': PageBuilderTexteImage;
+      'page-builder.titre': PageBuilderTitre;
       'shared.menu-item': SharedMenuItem;
       'shared.seo': SharedSeo;
     }

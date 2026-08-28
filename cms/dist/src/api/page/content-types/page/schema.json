@@ -15,7 +15,7 @@
             "type": "string",
             "required": true
         },
-        "Slug": {
+        "Url": {
             "type": "uid",
             "targetField": "Titre",
             "required": true
@@ -24,7 +24,10 @@
             "type": "dynamiczone",
             "components": [
                 "page-builder.hero",
-                "page-builder.texte-image"
+                "page-builder.texte-image",
+                "page-builder.citation",
+                "page-builder.titre",
+                "page-builder.texte"
             ]
         },
         "Seo": {

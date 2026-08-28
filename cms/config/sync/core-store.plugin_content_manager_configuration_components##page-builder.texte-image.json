@@ -1,0 +1,224 @@
+{
+  "key": "plugin_content_manager_configuration_components::page-builder.texte-image",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "Titre",
+      "defaultSortBy": "Titre",
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "PreTitre": {
+        "edit": {
+          "label": "PreTitre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "PreTitre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Titre": {
+        "edit": {
+          "label": "Titre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Titre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "SousTitre": {
+        "edit": {
+          "label": "SousTitre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "SousTitre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Description": {
+        "edit": {
+          "label": "Description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Image": {
+        "edit": {
+          "label": "Image",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Image",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "PositionImage": {
+        "edit": {
+          "label": "PositionImage",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "PositionImage",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Bouton1": {
+        "edit": {
+          "label": "Bouton1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Bouton1",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Bouton2": {
+        "edit": {
+          "label": "Bouton2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Bouton2",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Fond": {
+        "edit": {
+          "label": "Fond",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Fond",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "Titre",
+        "Image",
+        "PositionImage"
+      ],
+      "edit": [
+        [
+          {
+            "name": "PreTitre",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "Titre",
+            "size": 6
+          },
+          {
+            "name": "SousTitre",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Image",
+            "size": 6
+          },
+          {
+            "name": "PositionImage",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Fond",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Bouton1",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Bouton2",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "uid": "page-builder.texte-image",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -12,10 +12,6 @@ export default async function Header() {
     // Affiche le header sans menus si le CMS est inaccessible
   }
 
-  return (
-    <header className="sticky top-0 z-50 bg-blanc-casse border-b border-beige-clair shadow-sm">
-      <HeaderClient items={items} />
-    </header>
-  );
+  return <HeaderClient items={items} />;
 }
 

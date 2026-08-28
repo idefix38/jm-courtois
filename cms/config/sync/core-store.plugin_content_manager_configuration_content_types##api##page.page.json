@@ -1,0 +1,183 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::page.page",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "Titre",
+      "defaultSortBy": "Titre",
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Titre": {
+        "edit": {
+          "label": "Titre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Titre",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Url": {
+        "edit": {
+          "label": "Url",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Url",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Contenu": {
+        "edit": {
+          "label": "Contenu",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Contenu",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Seo": {
+        "edit": {
+          "label": "Seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdBy": {
+        "edit": {
+          "label": "createdBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "createdBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedBy": {
+        "edit": {
+          "label": "updatedBy",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true,
+          "mainField": "firstname"
+        },
+        "list": {
+          "label": "updatedBy",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "Titre",
+        "Seo",
+        "Url"
+      ],
+      "edit": [
+        [
+          {
+            "name": "Titre",
+            "size": 6
+          },
+          {
+            "name": "Url",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Contenu",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Seo",
+            "size": 12
+          }
+        ]
+      ]
+    },
+    "uid": "api::page.page"
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

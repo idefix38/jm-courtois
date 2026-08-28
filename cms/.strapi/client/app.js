@@ -6,13 +6,19 @@ import ckeditor5 from "@_sh/strapi-plugin-ckeditor/strapi-admin";
 import documentation from "@strapi/plugin-documentation/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
+import configSync from "strapi-plugin-config-sync/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
+import customisations from "../../src/admin/app.tsx";
+
 renderAdmin(document.getElementById("strapi"), {
+  customisations,
+
   plugins: {
     ckeditor5: ckeditor5,
     documentation: documentation,
     "users-permissions": usersPermissions,
     "strapi-cloud": strapiCloud,
+    "config-sync": configSync,
   },
 });

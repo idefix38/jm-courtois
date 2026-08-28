@@ -495,7 +495,13 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     dynamicZone: Schema.Attribute.DynamicZone<
-      ['page-builder.hero', 'page-builder.texte-image']
+      [
+        'page-builder.hero',
+        'page-builder.texte-image',
+        'page-builder.citation',
+        'page-builder.titre',
+        'page-builder.texte',
+      ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -585,7 +591,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Contenu: Schema.Attribute.DynamicZone<
-      ['page-builder.hero', 'page-builder.texte-image']
+      [
+        'page-builder.hero',
+        'page-builder.texte-image',
+        'page-builder.citation',
+        'page-builder.titre',
+        'page-builder.texte',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -595,11 +607,11 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Seo: Schema.Attribute.Component<'shared.seo', false>;
-    Slug: Schema.Attribute.UID<'Titre'> & Schema.Attribute.Required;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Url: Schema.Attribute.UID<'Titre'> & Schema.Attribute.Required;
   };
 }
 

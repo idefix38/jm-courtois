@@ -14,7 +14,7 @@
             "name": "Apache 2.0",
             "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "x-generation-date": "2026-08-27T08:37:09.688Z"
+        "x-generation-date": "2026-08-28T09:34:06.234Z"
     },
     "x-strapi-config": {
         "plugins": [
@@ -4673,6 +4673,15 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                         }
                                     ]
                                 },
@@ -4680,7 +4689,10 @@
                                     "propertyName": "__component",
                                     "mapping": {
                                         "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                        "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                        "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                        "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                        "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                        "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                                     }
                                 }
                             },
@@ -4768,6 +4780,15 @@
                                 },
                                 {
                                     "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                 }
                             ]
                         },
@@ -4775,7 +4796,10 @@
                             "propertyName": "__component",
                             "mapping": {
                                 "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                             }
                         }
                     },
@@ -4860,6 +4884,15 @@
                                             },
                                             {
                                                 "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                             }
                                         ]
                                     },
@@ -4867,7 +4900,10 @@
                                         "propertyName": "__component",
                                         "mapping": {
                                             "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                            "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                            "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                            "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                            "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                            "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                                         }
                                     }
                                 },
@@ -5413,10 +5449,7 @@
                         "$ref": "#/components/schemas/ComponentBoutonCtaComponent"
                     },
                     "Bouton2": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ComponentBoutonCtaComponent"
-                        }
+                        "$ref": "#/components/schemas/ComponentBoutonCtaComponent"
                     },
                     "Fond": {
                         "type": "string",
@@ -5426,6 +5459,93 @@
                             "Fleurs",
                             "Nuage"
                         ]
+                    }
+                }
+            },
+            "PageBuilderCitationComponent": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "__component": {
+                        "type": "string",
+                        "enum": [
+                            "page-builder.citation"
+                        ]
+                    },
+                    "Titre": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PageBuilderTitreComponent": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "__component": {
+                        "type": "string",
+                        "enum": [
+                            "page-builder.titre"
+                        ]
+                    },
+                    "Titre": {
+                        "type": "string"
+                    },
+                    "SousTitre": {
+                        "type": "string"
+                    },
+                    "Accroche": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PageBuilderTexteComponent": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "__component": {
+                        "type": "string",
+                        "enum": [
+                            "page-builder.texte"
+                        ]
+                    },
+                    "PreTitre": {
+                        "type": "string"
+                    },
+                    "Titre": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
                     }
                 }
             },
@@ -8048,14 +8168,14 @@
                     "data": {
                         "required": [
                             "Titre",
-                            "Slug"
+                            "Url"
                         ],
                         "type": "object",
                         "properties": {
                             "Titre": {
                                 "type": "string"
                             },
-                            "Slug": {
+                            "Url": {
                                 "type": "string"
                             },
                             "Contenu": {
@@ -8067,6 +8187,15 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                         }
                                     ]
                                 },
@@ -8074,7 +8203,10 @@
                                     "propertyName": "__component",
                                     "mapping": {
                                         "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                        "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                        "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                        "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                        "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                        "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                                     }
                                 }
                             },
@@ -8141,7 +8273,7 @@
                 "type": "object",
                 "required": [
                     "Titre",
-                    "Slug"
+                    "Url"
                 ],
                 "properties": {
                     "id": {
@@ -8160,7 +8292,7 @@
                     "Titre": {
                         "type": "string"
                     },
-                    "Slug": {
+                    "Url": {
                         "type": "string"
                     },
                     "Contenu": {
@@ -8172,6 +8304,15 @@
                                 },
                                 {
                                     "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                 }
                             ]
                         },
@@ -8179,7 +8320,10 @@
                             "propertyName": "__component",
                             "mapping": {
                                 "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                             }
                         }
                     },
@@ -8258,7 +8402,7 @@
                                 "Titre": {
                                     "type": "string"
                                 },
-                                "Slug": {
+                                "Url": {
                                     "type": "string"
                                 },
                                 "Contenu": {
@@ -8270,6 +8414,15 @@
                                             },
                                             {
                                                 "$ref": "#/components/schemas/PageBuilderTexteImageComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderCitationComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderTitreComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderTexteComponent"
                                             }
                                         ]
                                     },
@@ -8277,7 +8430,10 @@
                                         "propertyName": "__component",
                                         "mapping": {
                                             "page-builder.hero": "#/components/schemas/PageBuilderHeroComponent",
-                                            "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent"
+                                            "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
+                                            "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
+                                            "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
+                                            "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
                                         }
                                     }
                                 },

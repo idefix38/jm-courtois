@@ -4,6 +4,7 @@
             "approve": true,
             "matchCommandLine": true
         },
-        "timeout": true
+        "timeout": true,
+        "docker compose": true
     }
 }

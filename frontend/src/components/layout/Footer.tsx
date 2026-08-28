@@ -2,9 +2,13 @@ const INSTAGRAM_URL = 'https://www.instagram.com/jm.courtois';
 
 export default function Footer() {
   return (
-    <footer className="bg-vert-profond text-blanc-casse/60">
-      <div className="container mx-auto px-6 py-6 flex items-center justify-between text-sm">
-        <p className="font-serif text-blanc-casse font-semibold tracking-wide">JM Courtois</p>
+    <footer className="bg-black text-white">
+      <div className="container mx-auto px-6 py-6 flex items-center gap-4 text-sm">
+        <p className="font-script text-3xl text-white leading-none" style={{ fontFamily: 'var(--font-corinthia), cursive' }}>
+          Jm Courtois
+        </p>
+
+        <span className="w-px h-4 bg-white/20" />
 
         <a
           href={INSTAGRAM_URL}
@@ -19,8 +23,15 @@ export default function Footer() {
           @jm.courtois
         </a>
 
-        <p className="text-xs font-display tracking-widest">&copy; {new Date().getFullYear()}</p>
+        <span className="w-px h-4 bg-white/20" />
+
+        <p className="text-xs font-display tracking-widest">Cookies</p>
+
+        <span className="w-px h-4 bg-white/20" />
+
+        <p className="text-xs font-display tracking-widest">&copy; {new Date().getFullYear()} Tous droits réservés</p>
       </div>
     </footer>
   );
 }
+

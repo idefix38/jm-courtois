@@ -28,6 +28,11 @@
   .border-vert-sauge   { border-color: #45645B; }
   .border-vert-gris    { border-color: #7A8D7D; }
   .border-beige        { border-color: #C8B99A; }
+  .border-beige-clair  { border-color: #E9E5DB; }
+  .bg-blanc-casse       { background-color: #F6F6F2; }
+  .bg-beige             { background-color: #C8B99A; }
+  .bg-beige-clair       { background-color: #E9E5DB; }
+  .bg-vert-sauge        { background-color: #45645B; }  
   .hover\:border-vert-gris:hover  { border-color: #7A8D7D; }
   .hover\:border-vert-sauge:hover { border-color: #45645B; }
   .hover\:border-beige:hover      { border-color: #C8B99A; }

@@ -1,22 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from '@/components/ui/ThemeToggle';
 import type { MenuItemData } from '@/types/strapi';
 
 export default function HeaderClient({ items }: { items: MenuItemData[] }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  return (
-    <>
-      <div className="container mx-auto px-6 py-0 h-16 flex items-center justify-between relative">
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-        {/* Burger — mobile uniquement, à gauche */}
+  return (
+    <header
+      className={[
+        'sticky top-0 z-50 bg-blanc-casse border-b border-beige-clair shadow-sm transition-colors duration-300',
+        'md:fixed md:inset-x-0 md:w-full md:top-0',
+        scrolled ? 'md:bg-blanc-casse md:border-b md:border-beige-clair md:shadow-sm' : 'md:bg-transparent md:border-none md:shadow-none',
+      ].join(' ')}
+    >
+      <div className="w-full max-w-[1024px] mx-auto px-6 py-0 h-16 flex items-center justify-between relative">
+
+        {/* Logo */}
+        <Link href="/" className="font-script text-5xl text-vert-profond shrink-0 leading-none ml-4" style={{ fontFamily: 'var(--font-corinthia), cursive' }}>
+          jm
+        </Link>
+
+        {/* Burger — mobile uniquement, à droite */}
         <button
-          className="md:hidden p-2 -ml-2 text-vert-sauge hover:text-vert-profond transition-colors"
+          className="md:hidden p-2 -mr-2 text-vert-sauge hover:text-vert-profond transition-colors"
           onClick={() => setOpen(!open)}
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
           aria-expanded={open}
@@ -32,14 +50,9 @@ export default function HeaderClient({ items }: { items: MenuItemData[] }) {
           )}
         </button>
 
-        {/* Logo */}
-        <Link href="/" className="font-script text-5xl text-vert-profond shrink-0 leading-none" style={{ fontFamily: 'var(--font-corinthia), cursive' }}>
-          jm
-        </Link>
-
         {/* Navigation desktop — centrée absolument */}
         <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2">
-          <ul className="flex items-center gap-4">
+          <ul className="flex items-center gap-8">
             {items.map((item) => {
               const active = pathname === item.Url;
               return (
@@ -61,7 +74,6 @@ export default function HeaderClient({ items }: { items: MenuItemData[] }) {
           </ul>
         </nav>
 
-        <ThemeToggle />
       </div>
 
       {/* Menu mobile déroulant */}
@@ -91,6 +103,6 @@ export default function HeaderClient({ items }: { items: MenuItemData[] }) {
           </ul>
         </div>
       )}
-    </>
+    </header>
   );
 }

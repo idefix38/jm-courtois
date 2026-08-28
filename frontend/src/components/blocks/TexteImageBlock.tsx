@@ -11,12 +11,20 @@ const sectionBg: Record<string, string> = {
   Nuage:    '#F6F6F2',
 };
 
-// Image décorative positionnée sur la zone de contenu (entre les paddings)
+// Image décorative positionnée sur la zone de contenu (entre les paddings) — desktop
 const contentBgStyle: Record<string, React.CSSProperties> = {
   Uni:      {},
   Montagne: { backgroundImage: 'url(/images/montagne-bg.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', backgroundSize: 'auto 100%' },
   Fleurs:   { backgroundImage: 'url(/images/fleurs-bg.webp)',   backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', backgroundSize: 'auto 100%' },
   Nuage:    { backgroundImage: 'url(/images/texture-nuage.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '100% 100%' },
+};
+
+// Idem, calée en bas du bloc et pleine largeur, sans tenir compte du padding — mobile
+const contentBgStyleMobile: Record<string, React.CSSProperties> = {
+  Uni:      {},
+  Montagne: { backgroundImage: 'url(/images/montagne-bg.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom center', backgroundSize: '100% auto' },
+  Fleurs:   { backgroundImage: 'url(/images/fleurs-bg.webp)',   backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom center', backgroundSize: '100% auto' },
+  Nuage:    { backgroundImage: 'url(/images/texture-nuage.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom center', backgroundSize: '100% auto' },
 };
 
 function ButtonGroup({ b1, b2 }: { b1?: BoutonCtaType | null; b2?: BoutonCtaType | null }) {
@@ -37,16 +45,26 @@ export default function TexteImageBlock({ block }: { block: TexteImageBlockType 
 
   return (
     <section
-      className="relative py-16"
+      className="relative py-16 shadow-lg"
       style={{
         backgroundColor: sectionBg[fond],
         ...(fond === 'Nuage' ? contentBgStyle.Nuage : {}),
       }}
     >
-      {/* Fond image : calé à gauche et miroir quand l'image est à droite */}
+      {/* Fond image mobile : pleine largeur, calé en bas du bloc, ignore le padding vertical */}
       {(fond === 'Montagne' || fond === 'Fleurs') && (
         <div
-          className="absolute inset-x-0 top-16 bottom-16 pointer-events-none"
+          className="absolute inset-0 pointer-events-none md:hidden"
+          style={{
+            ...contentBgStyleMobile[fond],
+            transform: imageLeft ? undefined : 'scaleX(-1)',
+          }}
+        />
+      )}
+      {/* Fond image desktop : calé à gauche et miroir quand l'image est à droite */}
+      {(fond === 'Montagne' || fond === 'Fleurs') && (
+        <div
+          className="hidden md:block absolute inset-x-0 top-16 bottom-16 pointer-events-none"
           style={{
             ...contentBgStyle[fond],
             transform: imageLeft ? undefined : 'scaleX(-1)',
@@ -71,7 +89,7 @@ export default function TexteImageBlock({ block }: { block: TexteImageBlockType 
           )}
 
           {/* Texte */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0" style={{ maxWidth: '450px' }}>
             {block.PreTitre && (
               <p className="font-display font-semibold text-xs uppercase tracking-[0.2em] text-[#6F6F6F] mb-3">
                 {block.PreTitre}
@@ -85,14 +103,14 @@ export default function TexteImageBlock({ block }: { block: TexteImageBlockType 
             </h2>
 
             {block.SousTitre && (
-              <p className="font-serif text-xl text-[#45645B] mb-5 leading-snug">
+              <p className="font-serif text-xl text-[#24333A] mb-5 leading-snug">
                 {block.SousTitre}
               </p>
             )}
 
             {block.Description && (
               <div
-                className="prose prose-sm max-w-none text-[#6F6F6F] leading-relaxed"
+                className="prose prose-sm max-w-none text-[#24333A] leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: block.Description }}
               />
             )}

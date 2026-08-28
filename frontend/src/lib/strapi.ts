@@ -56,7 +56,7 @@ export async function getMenus() {
 
 export async function getPage(slug: string) {
     return fetchAPI("/pages", {
-        filters: { Slug: { $eq: slug } },
+        filters: { Url: { $eq: slug } },
         populate: {
             Contenu: { populate: "*" },
             Seo: true,
