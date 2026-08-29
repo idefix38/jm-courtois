@@ -16,6 +16,9 @@
             "type": "string",
             "required": true
         },
+        "SousTitre": {
+            "type": "string"
+        },
         "Slug": {
             "type": "uid",
             "targetField": "Titre",
@@ -29,29 +32,40 @@
             "type": "string"
         },
         "DatePublication": {
-            "type": "date"
+            "type": "date",
+            "required": true
         },
         "ISBN": {
             "type": "string"
         },
         "Resume": {
-            "type": "richtext"
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
+            "required": true
         },
         "Couverture": {
             "type": "media",
             "multiple": false,
-            "required": false,
-            "allowedTypes": ["images"]
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
         },
         "Genre": {
-            "type": "string"
+            "type": "string",
+            "required": true
         },
         "NombreDePages": {
-            "type": "integer"
+            "type": "integer",
+            "required": true
         },
         "Langue": {
             "type": "string",
-            "default": "fr"
+            "default": "fr",
+            "required": true
         },
         "LienAmazon": {
             "type": "string"
@@ -64,6 +78,13 @@
         },
         "UrlSiteEditeur": {
             "type": "string"
+        },
+        "Extrait": {
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            }
         },
         "Seo": {
             "type": "component",

@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_page_builder_liste_livres",
+  "info": {
+    "displayName": "Liste Livre",
+    "icon": "book",
+    "description": "Affiche la liste de tous les livres publiés — aucun paramètre"
+  },
+  "options": {},
+  "attributes": {}
+}

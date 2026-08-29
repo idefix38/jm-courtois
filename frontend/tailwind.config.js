@@ -13,6 +13,7 @@ module.exports = {
         'blanc-casse':   '#F6F6F2',
         'anthracite':    '#1E1E1E',
         'gris-doux':     '#6F6F6F',
+        'ocre':          '#B5883D',
       },
       fontFamily: {
         serif:   ['var(--font-playfair)', 'Georgia', 'serif'],

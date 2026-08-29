@@ -36,14 +36,28 @@
       },
       "Slug": {
         "edit": {
-          "label": "Slug",
-          "description": "",
+          "label": "Url",
+          "description": null,
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
           "label": "Slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "SousTitre": {
+        "edit": {
+          "label": "SousTitre",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "SousTitre",
           "searchable": true,
           "sortable": true
         }
@@ -106,7 +120,7 @@
       },
       "Resume": {
         "edit": {
-          "label": "Resume",
+          "label": "Résumé",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -230,6 +244,20 @@
           "sortable": true
         }
       },
+      "Extrait": {
+        "edit": {
+          "label": "Extrait",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Extrait",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "Seo": {
         "edit": {
           "label": "Seo",
@@ -332,6 +360,12 @@
         ],
         [
           {
+            "name": "SousTitre",
+            "size": 12
+          }
+        ],
+        [
+          {
             "name": "Editeur",
             "size": 6
           },
@@ -352,8 +386,16 @@
         ],
         [
           {
-            "name": "Resume",
-            "size": 12
+            "name": "NombreDePages",
+            "size": 4
+          },
+          {
+            "name": "Genre",
+            "size": 4
+          },
+          {
+            "name": "Langue",
+            "size": 4
           }
         ],
         [
@@ -364,19 +406,17 @@
         ],
         [
           {
-            "name": "NombreDePages",
-            "size": 4
-          },
-          {
-            "name": "Genre",
-            "size": 6
+            "name": "Resume",
+            "size": 12
           }
         ],
         [
           {
-            "name": "Langue",
-            "size": 6
-          },
+            "name": "Extrait",
+            "size": 12
+          }
+        ],
+        [
           {
             "name": "LienAmazon",
             "size": 6
@@ -386,7 +426,9 @@
           {
             "name": "LienEditeur",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "LienFnac",
             "size": 6

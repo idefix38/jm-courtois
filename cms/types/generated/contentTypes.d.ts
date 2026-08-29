@@ -501,6 +501,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.citation',
         'page-builder.titre',
         'page-builder.texte',
+        'page-builder.liste-livre',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -530,26 +531,43 @@ export interface ApiLivreLivre extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Auteur: Schema.Attribute.String & Schema.Attribute.Required;
-    Couverture: Schema.Attribute.Media<'images'>;
+    Couverture: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DatePublication: Schema.Attribute.Date;
+    DatePublication: Schema.Attribute.Date & Schema.Attribute.Required;
     Editeur: Schema.Attribute.String;
-    Genre: Schema.Attribute.String;
+    Extrait: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Genre: Schema.Attribute.String & Schema.Attribute.Required;
     ISBN: Schema.Attribute.String;
-    Langue: Schema.Attribute.String & Schema.Attribute.DefaultTo<'fr'>;
+    Langue: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'fr'>;
     LienAmazon: Schema.Attribute.String;
     LienEditeur: Schema.Attribute.String;
     LienFnac: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::livre.livre'> &
       Schema.Attribute.Private;
-    NombreDePages: Schema.Attribute.Integer;
+    NombreDePages: Schema.Attribute.Integer & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    Resume: Schema.Attribute.RichText;
+    Resume: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     Seo: Schema.Attribute.Component<'shared.seo', false>;
     Slug: Schema.Attribute.UID<'Titre'> & Schema.Attribute.Required;
+    SousTitre: Schema.Attribute.String;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -601,6 +619,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.citation',
         'page-builder.titre',
         'page-builder.texte',
+        'page-builder.liste-livre',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

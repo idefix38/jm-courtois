@@ -4,6 +4,7 @@ import TexteImageBlock from './TexteImageBlock';
 import CitationBlock from './CitationBlock';
 import TitreBlock from './TitreBlock';
 import TexteBlock from './TexteBlock';
+import ListeLivreBlock from './ListeLivreBlock';
 
 export default function DynamicZone({ blocks }: { blocks: Block[] }) {
   if (!blocks?.length) return null;
@@ -26,6 +27,8 @@ export default function DynamicZone({ blocks }: { blocks: Block[] }) {
             return <div key={`titre-${block.id}`} className={spacing}><TitreBlock block={block} /></div>;
           case 'page-builder.texte':
             return <div key={`texte-${block.id}`} className={spacing}><TexteBlock block={block} /></div>;
+          case 'page-builder.liste-livre':
+            return <div key={`liste-livre-${block.id}`} className={spacing}><ListeLivreBlock /></div>;
           default:
             return null;
         }

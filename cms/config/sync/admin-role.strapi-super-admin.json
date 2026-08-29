@@ -298,7 +298,7 @@
       "locale": null
     },
     {
-      "documentId": "w9nyg2vfpawtazv1thob1ijh",
+      "documentId": "qm7tx2tdrp5mahbc0mxeml59",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -319,6 +319,7 @@
           "LienFnac",
           "LienEditeur",
           "UrlSiteEditeur",
+          "Extrait",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",
@@ -347,7 +348,7 @@
       "locale": null
     },
     {
-      "documentId": "x04yvg8vdbo1soxwxii0do3x",
+      "documentId": "i8ghnu55c1chkbdldajrzsv5",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -368,6 +369,7 @@
           "LienFnac",
           "LienEditeur",
           "UrlSiteEditeur",
+          "Extrait",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",
@@ -378,7 +380,7 @@
       "locale": null
     },
     {
-      "documentId": "g87g299phfo5i4k0vr2dsqwm",
+      "documentId": "xftgzg0v769ke242rrnomnz0",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::livre.livre",
@@ -399,6 +401,7 @@
           "LienFnac",
           "LienEditeur",
           "UrlSiteEditeur",
+          "Extrait",
           "Seo.metaTitle",
           "Seo.metaDescription",
           "Seo.canonicalURL",

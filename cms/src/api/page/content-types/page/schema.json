@@ -27,7 +27,8 @@
         "page-builder.texte-image",
         "page-builder.citation",
         "page-builder.titre",
-        "page-builder.texte"
+        "page-builder.texte",
+        "page-builder.liste-livre"
       ]
     },
     "Seo": {

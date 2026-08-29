@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-08-28T10:32:17.462Z"
+    "x-generation-date": "2026-08-29T17:06:32.622Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -4682,6 +4682,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                     }
                   ]
                 },
@@ -4692,7 +4695,8 @@
                     "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                     "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                     "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                    "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                    "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                    "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
                   }
                 }
               },
@@ -4789,6 +4793,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                 }
               ]
             },
@@ -4799,7 +4806,8 @@
                 "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                 "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                 "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
               }
             }
           },
@@ -4893,6 +4901,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                       }
                     ]
                   },
@@ -4903,7 +4914,8 @@
                       "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                       "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                       "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                      "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                      "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                      "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
                     }
                   }
                 },
@@ -5549,6 +5561,27 @@
           }
         }
       },
+      "PageBuilderListeLivreComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-builder.liste-livre"
+            ]
+          }
+        }
+      },
       "SharedSeoComponent": {
         "type": "object",
         "properties": {
@@ -5590,11 +5623,20 @@
             "required": [
               "Titre",
               "Slug",
-              "Auteur"
+              "Auteur",
+              "DatePublication",
+              "Resume",
+              "Couverture",
+              "Genre",
+              "NombreDePages",
+              "Langue"
             ],
             "type": "object",
             "properties": {
               "Titre": {
+                "type": "string"
+              },
+              "SousTitre": {
                 "type": "string"
               },
               "Slug": {
@@ -5646,6 +5688,9 @@
                 "type": "string"
               },
               "UrlSiteEditeur": {
+                "type": "string"
+              },
+              "Extrait": {
                 "type": "string"
               },
               "Seo": {
@@ -5712,7 +5757,13 @@
         "required": [
           "Titre",
           "Slug",
-          "Auteur"
+          "Auteur",
+          "DatePublication",
+          "Resume",
+          "Couverture",
+          "Genre",
+          "NombreDePages",
+          "Langue"
         ],
         "properties": {
           "id": {
@@ -5729,6 +5780,9 @@
             "type": "string"
           },
           "Titre": {
+            "type": "string"
+          },
+          "SousTitre": {
             "type": "string"
           },
           "Slug": {
@@ -6889,6 +6943,9 @@
           "UrlSiteEditeur": {
             "type": "string"
           },
+          "Extrait": {
+            "type": "string"
+          },
           "Seo": {
             "$ref": "#/components/schemas/SharedSeoComponent"
           },
@@ -6962,6 +7019,9 @@
                   "type": "string"
                 },
                 "Titre": {
+                  "type": "string"
+                },
+                "SousTitre": {
                   "type": "string"
                 },
                 "Slug": {
@@ -7174,6 +7234,9 @@
                   "type": "string"
                 },
                 "UrlSiteEditeur": {
+                  "type": "string"
+                },
+                "Extrait": {
                   "type": "string"
                 },
                 "Seo": {
@@ -8232,6 +8295,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                     }
                   ]
                 },
@@ -8242,7 +8308,8 @@
                     "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                     "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                     "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                    "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                    "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                    "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
                   }
                 }
               },
@@ -8349,6 +8416,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                 }
               ]
             },
@@ -8359,7 +8429,8 @@
                 "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                 "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                 "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
               }
             }
           },
@@ -8459,6 +8530,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageBuilderTexteComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageBuilderListeLivreComponent"
                       }
                     ]
                   },
@@ -8469,7 +8543,8 @@
                       "page-builder.texte-image": "#/components/schemas/PageBuilderTexteImageComponent",
                       "page-builder.citation": "#/components/schemas/PageBuilderCitationComponent",
                       "page-builder.titre": "#/components/schemas/PageBuilderTitreComponent",
-                      "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent"
+                      "page-builder.texte": "#/components/schemas/PageBuilderTexteComponent",
+                      "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent"
                     }
                   }
                 },

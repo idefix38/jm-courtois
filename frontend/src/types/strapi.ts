@@ -69,7 +69,12 @@ export interface TexteBlock {
     Description: string;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock;
+export interface ListeLivreBlock {
+    __component: 'page-builder.liste-livre';
+    id: number;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 
@@ -102,6 +107,7 @@ export interface LivreData {
     id: number;
     documentId: string;
     Titre: string;
+    SousTitre?: string | null;
     Slug: string;
     Auteur: string;
     Editeur?: string;
@@ -116,6 +122,7 @@ export interface LivreData {
     LienFnac?: string | null;
     LienEditeur?: string | null;
     UrlSiteEditeur?: string | null;
+    Extrait?: string | null;
     Seo?: SEO | null;
 }
 

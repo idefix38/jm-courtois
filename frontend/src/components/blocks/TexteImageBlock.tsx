@@ -96,7 +96,7 @@ export default function TexteImageBlock({ block }: { block: TexteImageBlockType 
               </p>
             )}
 
-            <div className="w-10 h-0.5 mb-4" style={{ backgroundColor: '#C8B99A' }} />
+            <div className="w-10 h-0.5 mb-4" style={{ backgroundColor: '#B5883D' }} />
 
             <h2 className="font-serif text-3xl md:text-4xl text-[#24333A] mb-3 leading-tight">
               {block.Titre}
