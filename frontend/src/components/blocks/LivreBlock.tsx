@@ -8,10 +8,17 @@ import BoutonCta from '@/components/ui/BoutonCta';
 function InfoItem({ icon, children }: { icon: LivrePictoName; children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center gap-1.5 text-sm text-anthracite">
-      <LivrePicto name={icon} className="w-4 h-4 text-ocre shrink-0" />
+      <LivrePicto name={icon} className="w-4 h-4 shrink-0" style={{ color: '#B5883D' }} />
       {children}
     </span>
   );
+}
+
+// Retire les balises HTML du résumé (CKEditor) et coupe proprement autour de maxLength caractères
+function truncateResume(html: string, maxLength: number): string {
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).replace(/\s+\S*$/, '') + '…';
 }
 
 export default function LivreBlock({ livre }: { livre: LivreData }) {
@@ -58,7 +65,7 @@ export default function LivreBlock({ livre }: { livre: LivreData }) {
             </h2>
 
             {livre.SousTitre && (
-              <p className="font-serif text-xl text-vert-profond mb-5 leading-snug">
+              <p className="font-serif italic text-xl text-vert-profond mb-5 leading-snug">
                 {livre.SousTitre}
               </p>
             )}
@@ -86,10 +93,9 @@ export default function LivreBlock({ livre }: { livre: LivreData }) {
             </div>
 
             {livre.Resume && (
-              <div
-                className="prose prose-sm max-w-none text-anthracite leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: livre.Resume }}
-              />
+              <p className="text-sm text-anthracite leading-relaxed">
+                {truncateResume(livre.Resume, 300)}
+              </p>
             )}
 
             <div className="flex flex-wrap items-center gap-3 mt-6">
@@ -97,7 +103,7 @@ export default function LivreBlock({ livre }: { livre: LivreData }) {
                 href={`/livres/${livre.Slug}`}
                 className="inline-block font-display font-semibold text-xs uppercase tracking-widest text-white bg-vert-sauge px-7 py-3.5 hover:bg-vert-profond transition-colors duration-200"
               >
-                Voir le Livre
+                En savoir plus
               </Link>
               {livre.LienAmazon && (
                 <BoutonCta bouton={{ id: -1, Titre: 'Acheter sur Amazon', Url: livre.LienAmazon, Style: 'Secondaire' }} />

@@ -103,7 +103,7 @@ export default function TexteImageBlock({ block }: { block: TexteImageBlockType 
             </h2>
 
             {block.SousTitre && (
-              <p className="font-serif text-xl text-[#24333A] mb-5 leading-snug">
+              <p className="font-serif italic text-xl text-[#24333A] mb-5 leading-snug">
                 {block.SousTitre}
               </p>
             )}

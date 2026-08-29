@@ -1,5 +1,6 @@
 import type { TexteBlock as TexteBlockType } from '@/types/strapi';
 import LaurierSeparator from '@/components/ui/LaurierSeparator';
+import RichText from '@/components/ui/RichText';
 
 export default function TexteBlock({ block }: { block: TexteBlockType }) {
   return (
@@ -30,13 +31,12 @@ export default function TexteBlock({ block }: { block: TexteBlockType }) {
             <h2 className="font-serif text-3xl md:text-4xl text-[#24333A] leading-tight">
               {block.Titre}
             </h2>
-            <LaurierSeparator />
+            <div className="my-6">
+              <LaurierSeparator />
+            </div>
           </div>
 
-          <div
-            className="prose prose-sm max-w-none text-[#24333A] leading-relaxed [&_hr]:h-px [&_hr]:w-[70px] [&_hr]:border-0 [&_hr]:bg-[#C8B99A] [&_hr]:mt-[15px] [&_hr]:mb-[15px] [&_hr]:ml-0 [&_hr]:mr-auto"
-            dangerouslySetInnerHTML={{ __html: block.Description }}
-          />
+          <RichText html={block.Description} />
         </div>
       </div>
     </section>

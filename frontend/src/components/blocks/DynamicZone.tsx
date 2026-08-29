@@ -5,6 +5,7 @@ import CitationBlock from './CitationBlock';
 import TitreBlock from './TitreBlock';
 import TexteBlock from './TexteBlock';
 import ListeLivreBlock from './ListeLivreBlock';
+import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 export default function DynamicZone({ blocks }: { blocks: Block[] }) {
   if (!blocks?.length) return null;
@@ -15,7 +16,7 @@ export default function DynamicZone({ blocks }: { blocks: Block[] }) {
   return (
     <div className={startsWithHero ? undefined : 'md:pt-16'}>
       {blocks.map((block, index) => {
-        const spacing = index > 0 ? 'mt-[15px]' : '';
+        const spacing = index > 0 ? BLOCK_SPACING_CLASS : '';
         switch (block.__component) {
           case 'page-builder.hero':
             return <div key={`hero-${block.id}`} className={spacing}><HeroBlock block={block} /></div>;
@@ -33,7 +34,7 @@ export default function DynamicZone({ blocks }: { blocks: Block[] }) {
             return null;
         }
       })}
-      <div className="mt-[15px]" />
+      <div className={BLOCK_SPACING_CLASS} />
     </div>
   );
 }

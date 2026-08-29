@@ -12,7 +12,7 @@ export default function BoutonCta({ bouton }: { bouton: BoutonCtaType }) {
   return (
     <Link
       href={bouton.Url}
-      className="inline-block font-display font-semibold text-xs uppercase tracking-widest transition-all duration-200"
+      className="inline-block text-center font-display font-semibold text-xs uppercase tracking-widest transition-all duration-200"
       style={styles[bouton.Style]}
     >
       {bouton.Style === 'Link'

@@ -1,6 +1,7 @@
 import { getLivres } from '@/lib/strapi';
 import type { LivreData } from '@/types/strapi';
 import LivreBlock from './LivreBlock';
+import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 // Bloc sans paramètre : affiche automatiquement tous les livres publiés
 export default async function ListeLivreBlock() {
@@ -17,7 +18,7 @@ export default async function ListeLivreBlock() {
   return (
     <>
       {livres.map((livre, index) => (
-        <div key={livre.id} className={index > 0 ? 'mt-[15px]' : ''}>
+        <div key={livre.id} className={index > 0 ? BLOCK_SPACING_CLASS : ''}>
           <LivreBlock livre={livre} />
         </div>
       ))}

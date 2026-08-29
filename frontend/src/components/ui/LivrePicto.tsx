@@ -1,4 +1,4 @@
-export type LivrePictoName = 'auteur' | 'editeur' | 'date' | 'pages' | 'genre';
+export type LivrePictoName = 'auteur' | 'editeur' | 'date' | 'pages' | 'genre' | 'langue' | 'isbn';
 
 // Tracés Lucide (licence ISC, https://lucide.dev) intégrés en dur, sans dépendance lucide-react
 const paths: Record<LivrePictoName, React.ReactNode> = {
@@ -47,9 +47,25 @@ const paths: Record<LivrePictoName, React.ReactNode> = {
       <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
     </>
   ),
+  langue: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+      <path d="M2 12h20" />
+    </>
+  ),
+  isbn: (
+    <>
+      <path d="M3 5v14" />
+      <path d="M8 5v14" />
+      <path d="M12 5v14" />
+      <path d="M17 5v14" />
+      <path d="M21 5v14" />
+    </>
+  ),
 };
 
-export default function LivrePicto({ name, className = 'w-4 h-4' }: { name: LivrePictoName; className?: string }) {
+export default function LivrePicto({ name, className = 'w-4 h-4', style }: { name: LivrePictoName; className?: string; style?: React.CSSProperties }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -59,6 +75,7 @@ export default function LivrePicto({ name, className = 'w-4 h-4' }: { name: Livr
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      style={style}
       aria-hidden="true"
     >
       {paths[name]}

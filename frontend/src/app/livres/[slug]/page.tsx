@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getLivre, getLivres, getStrapiMedia } from '@/lib/strapi';
-import Image from 'next/image';
+import { getLivre, getLivres } from '@/lib/strapi';
 import type { LivreData } from '@/types/strapi';
+import DetailLivre from '@/components/blocks/DetailLivre';
+import ExtraitLivre from '@/components/blocks/ExtraitLivre';
+import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -45,46 +47,12 @@ export default async function LivrePage({ params }: Props) {
 
   if (!livre) notFound();
 
-  const coverUrl = getStrapiMedia(livre.Couverture?.url ?? null);
-
   return (
-    <>
-      <section className="bg-gray-900 dark:bg-black text-white">
-        <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row gap-12 items-center">
-          {coverUrl && (
-            <div className="relative w-48 md:w-64 flex-shrink-0 aspect-[2/3] shadow-2xl">
-              <Image
-                src={coverUrl}
-                alt={livre.Couverture?.alternativeText ?? livre.Titre}
-                fill
-                className="object-cover rounded"
-              />
-            </div>
-          )}
-          <div>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-2">{livre.Titre}</h1>
-            {livre.Auteur && <p className="text-lg text-gray-300 mb-1">{livre.Auteur}</p>}
-            {livre.Editeur && <p className="text-sm text-gray-400 mb-4">{livre.Editeur}</p>}
-            {livre.Resume && (
-              <div
-                className="prose prose-invert prose-sm max-w-xl mb-6"
-                dangerouslySetInnerHTML={{ __html: livre.Resume }}
-              />
-            )}
-            <dl className="text-sm text-gray-400 space-y-1">
-              {livre.DatePublication && (
-                <div><dt className="inline font-medium text-gray-200">Parution : </dt><dd className="inline">{new Date(livre.DatePublication).toLocaleDateString('fr-FR')}</dd></div>
-              )}
-              {livre.ISBN && (
-                <div><dt className="inline font-medium text-gray-200">ISBN : </dt><dd className="inline">{livre.ISBN}</dd></div>
-              )}
-              {livre.NombreDePages && (
-                <div><dt className="inline font-medium text-gray-200">Pages : </dt><dd className="inline">{livre.NombreDePages}</dd></div>
-              )}
-            </dl>
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="pt-8 md:pt-24 bg-white">
+      <DetailLivre livre={livre} />
+      <div className={BLOCK_SPACING_CLASS}>
+        <ExtraitLivre livre={livre} />
+      </div>
+    </div>
   );
 }

@@ -24,7 +24,7 @@ export default function TitreBlock({ block }: { block: TitreBlockType }) {
 
         {block.Accroche && (
           <div className="clear-both mt-8 text-left inline-block">
-            <span className="float-left font-serif text-6xl leading-[0.7] text-[#C8B99A] mr-2" aria-hidden="true">&ldquo;</span>
+            <span className="float-left font-serif text-6xl leading-[0.7] text-[#B5883D] mr-2" aria-hidden="true">&ldquo;</span>
             <p className="font-serif italic text-[#24333A] leading-relaxed">
               {block.Accroche}
             </p>
