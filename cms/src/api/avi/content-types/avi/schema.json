@@ -29,6 +29,15 @@
       "type": "string",
       "required": true
     },
+    "Sexe": {
+      "type": "enumeration",
+      "enum": [
+        "Homme",
+        "Femme"
+      ],
+      "default": "Homme",
+      "required": true
+    },
     "Date": {
       "type": "date",
       "required": true

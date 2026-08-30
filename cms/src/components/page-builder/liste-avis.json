@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_page_builder_liste_avis",
+  "info": {
+    "displayName": "Liste Avis",
+    "icon": "message",
+    "description": "Affiche tous les avis publiés, triés par date décroissante — aucun paramètre"
+  },
+  "options": {},
+  "attributes": {}
+}

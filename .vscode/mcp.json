@@ -5,7 +5,7 @@
       "type": "http",
       "headers": {
         // Créer un Admin Token et non un Api Token pour pouvoir accéder à l'API MCP
-        "Authorization": "Bearer 5e35a7a89618b59cd3d370ae57452d92495a4ccb3ce64488d80f68c35264de16e1ebf082a9d0865d01daf5b68a2abd651274a705dc3eb077bb5f65b9c2db50e8831588acdbcc8822a3507a2eecb489df9759634387ef76907d20fb6fdc33e64f0ea0a9ea7bc589b62ac318fba2a4041874a6dce449f8c3052b3003f6d6bb36d2"
+        "Authorization": "Bearer f0bc83774018e218e7aa09c24c21718fdeada9bd223c4901a6c760349bb27821306418ad07c2e15362bcd5dd5bf66a3d350ce697f6810dc209e12861bbe911d2fceb8f388ec7e57937cfff28ee2e0e39d3922372ea9ea6c372bad161ab028642cbcd182daf509a30daa91f5e965779b73ba99e3eaaf1b9b8d19c45356bdf1d0a"
       }
     },
   },

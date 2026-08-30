@@ -74,7 +74,12 @@ export interface ListeLivreBlock {
     id: number;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock;
+export interface ListeAvisBlock {
+    __component: 'page-builder.liste-avis';
+    id: number;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 
@@ -139,6 +144,7 @@ export interface AvisData {
     Texte: string;
     Note: number;
     Prenom: string;
+    Sexe: 'Homme' | 'Femme';
     Date: string;
 }
 

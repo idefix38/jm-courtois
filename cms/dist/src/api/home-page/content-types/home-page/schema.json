@@ -19,7 +19,8 @@
                 "page-builder.citation",
                 "page-builder.titre",
                 "page-builder.texte",
-                "page-builder.liste-livre"
+                "page-builder.liste-livre",
+                "page-builder.liste-avis"
             ]
         },
         "Seo": {

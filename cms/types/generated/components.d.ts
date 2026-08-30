@@ -51,6 +51,16 @@ export interface PageBuilderHero extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderListeAvis extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_liste_avis';
+  info: {
+    description: 'Affiche tous les avis publi\u00E9s, tri\u00E9s par date d\u00E9croissante \u2014 aucun param\u00E8tre';
+    displayName: 'Liste Avis';
+    icon: 'message';
+  };
+  attributes: {};
+}
+
 export interface PageBuilderListeLivre extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_liste_livres';
   info: {
@@ -168,6 +178,7 @@ declare module '@strapi/strapi' {
       'component.bouton-cta': ComponentBoutonCta;
       'page-builder.citation': PageBuilderCitation;
       'page-builder.hero': PageBuilderHero;
+      'page-builder.liste-avis': PageBuilderListeAvis;
       'page-builder.liste-livre': PageBuilderListeLivre;
       'page-builder.texte': PageBuilderTexte;
       'page-builder.texte-image': PageBuilderTexteImage;

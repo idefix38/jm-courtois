@@ -472,6 +472,9 @@ export interface ApiAviAvi extends Struct.CollectionTypeSchema {
       >;
     Prenom: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    Sexe: Schema.Attribute.Enumeration<['Homme', 'Femme']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Homme'>;
     Texte: Schema.Attribute.Text & Schema.Attribute.Required;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -502,6 +505,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.titre',
         'page-builder.texte',
         'page-builder.liste-livre',
+        'page-builder.liste-avis',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -620,6 +624,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.titre',
         'page-builder.texte',
         'page-builder.liste-livre',
+        'page-builder.liste-avis',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

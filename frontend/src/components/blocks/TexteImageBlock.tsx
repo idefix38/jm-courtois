@@ -5,7 +5,7 @@ import BoutonCta from '@/components/ui/BoutonCta';
 
 // Couleur de base de la section (hors fond image)
 const sectionBg: Record<string, string> = {
-  Uni:      '#F6F6F2',
+  Uni:      '#F4EFE8',
   Montagne: '#F0E9E0',
   Fleurs:   '#E8E3D9',
   Nuage:    '#F6F6F2',

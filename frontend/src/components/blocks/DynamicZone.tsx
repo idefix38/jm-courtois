@@ -5,6 +5,7 @@ import CitationBlock from './CitationBlock';
 import TitreBlock from './TitreBlock';
 import TexteBlock from './TexteBlock';
 import ListeLivreBlock from './ListeLivreBlock';
+import ListeAvisBlock from './ListeAvisBlock';
 import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 export default function DynamicZone({ blocks }: { blocks: Block[] }) {
@@ -30,6 +31,8 @@ export default function DynamicZone({ blocks }: { blocks: Block[] }) {
             return <div key={`texte-${block.id}`} className={spacing}><TexteBlock block={block} /></div>;
           case 'page-builder.liste-livre':
             return <div key={`liste-livre-${block.id}`} className={spacing}><ListeLivreBlock /></div>;
+          case 'page-builder.liste-avis':
+            return <div key={`liste-avis-${block.id}`} className={spacing}><ListeAvisBlock /></div>;
           default:
             return null;
         }
