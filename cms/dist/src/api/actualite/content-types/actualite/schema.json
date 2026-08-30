@@ -1,0 +1,42 @@
+{
+    "kind": "collectionType",
+    "collectionName": "actualites",
+    "info": {
+        "singularName": "actualite",
+        "pluralName": "actualites",
+        "displayName": "Actualité",
+        "description": "Actualités et événements de l'auteur (sorties, salons, dédicaces...)"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "Lieu": {
+            "type": "string"
+        },
+        "Date": {
+            "type": "date",
+            "required": true
+        },
+        "Texte": {
+            "type": "customField",
+            "customField": "plugin::ckeditor5.CKEditor",
+            "options": {
+                "preset": "defaultHtml"
+            },
+            "required": true
+        },
+        "Image": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images"
+            ]
+        }
+    }
+}

@@ -19,7 +19,7 @@ export default function CitationBlock({ block }: { block: CitationBlockType }) {
         )}
 
         <div className="clear-both">
-          <span className="float-left font-serif text-6xl leading-[0.7] text-[#24333A] mr-2" aria-hidden="true">&ldquo;</span>
+          <span className="float-left font-serif text-6xl leading-[0.7] mr-2" style={{ color: '#B5883D' }} aria-hidden="true">&ldquo;</span>
 
           <div
             className="prose prose-sm max-w-none font-serif italic text-[#24333A] leading-relaxed"
