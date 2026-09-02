@@ -23,7 +23,7 @@ export default async function ListeAvisBlock() {
       />
       <div
         className="absolute inset-x-0 bottom-0 h-[190px] pointer-events-none"
-        style={{ backgroundImage: 'url(/images/herbes-sauvages-1024x180.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom center', backgroundSize: 'auto' }}
+        style={{ backgroundImage: 'url(/images/herbes-sauvages-1024x300.webp)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom center', backgroundSize: 'auto' }}
       />
       <div className="container mx-auto max-w-4xl relative z-10">
         <h2 className="font-serif text-3xl md:text-4xl text-vert-profond text-center leading-tight">

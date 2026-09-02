@@ -8,7 +8,6 @@ import ListeLivreBlock from './PageBuilder/ListeLivreBlock';
 import ListeAvisBlock from './PageBuilder/ListeAvisBlock';
 import ListeActualitesBlock from './PageBuilder/ListeActualitesBlock';
 import LivreBlock from './PageBuilder/LivreBlock';
-import BlocActualiteBlock from './PageBuilder/BlocActualiteBlock';
 import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 export default function DynamicZone({ blocks, skipTopPadding = false }: { blocks: Block[]; skipTopPadding?: boolean }) {
@@ -40,8 +39,6 @@ export default function DynamicZone({ blocks, skipTopPadding = false }: { blocks
             return <div key={`liste-actualites-${block.id}`} className={spacing}><ListeActualitesBlock block={block} /></div>;
           case 'page-builder.bloc-livre':
             return <div key={`bloc-livre-${block.id}`} className={spacing}><LivreBlock block={block} /></div>;
-          case 'page-builder.bloc-actualite':
-            return <div key={`bloc-actualite-${block.id}`} className={spacing}><BlocActualiteBlock block={block} /></div>;
           default:
             return null;
         }

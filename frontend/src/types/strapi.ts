@@ -51,6 +51,8 @@ export interface CitationBlock {
     id: number;
     Titre?: string | null;
     Description: string;
+    Bouton?: BoutonCta | null;
+    Style: 'Nuages' | 'Cerf-volant' | 'Herbes' | 'Uni';
 }
 
 export interface TitreBlock {
@@ -100,7 +102,7 @@ export interface BlocActualiteBlock {
     Actualite: ActualiteData;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock | BlocActualiteBlock;
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 

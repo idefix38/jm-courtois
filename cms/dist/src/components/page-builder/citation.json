@@ -17,6 +17,22 @@
                 "preset": "defaultHtml"
             },
             "required": true
+        },
+        "Bouton": {
+            "type": "component",
+            "component": "component.bouton-cta",
+            "repeatable": false
+        },
+        "Style": {
+            "type": "enumeration",
+            "enum": [
+                "Nuages",
+                "Cerf-volant",
+                "Herbes",
+                "Uni"
+            ],
+            "default": "Nuages",
+            "required": true
         }
     }
 }

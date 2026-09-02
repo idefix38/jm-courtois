@@ -563,7 +563,6 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
-        'page-builder.bloc-actualite',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -685,7 +684,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
-        'page-builder.bloc-actualite',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
