@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { getHome } from '@/lib/strapi';
 import DynamicZone from '@/components/blocks/DynamicZone';
 import type { HomeData } from '@/types/strapi';
@@ -17,8 +18,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
+  const { isEnabled: isPreview } = await draftMode();
+
   try {
-    const res = await getHome() as { data: HomeData };
+    const res = await getHome(isPreview) as { data: HomeData };
     const blocks = res.data?.dynamicZone ?? [];
     return <DynamicZone blocks={blocks} />;
   } catch {

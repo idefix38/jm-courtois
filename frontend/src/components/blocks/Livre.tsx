@@ -21,7 +21,7 @@ function truncateResume(html: string, maxLength: number): string {
   return text.slice(0, maxLength).replace(/\s+\S*$/, '') + '…';
 }
 
-export default function LivreBlock({ livre }: { livre: LivreData }) {
+export default function Livre({ livre }: { livre: LivreData }) {
   const coverUrl = getStrapiMedia(livre.Couverture?.url ?? null);
   const editeurUrl = livre.LienEditeur || livre.UrlSiteEditeur || null;
   const dateLabel = livre.DatePublication

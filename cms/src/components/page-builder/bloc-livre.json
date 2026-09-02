@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_builder_bloc_livres",
+  "info": {
+    "displayName": "Bloc Livre",
+    "icon": "book",
+    "description": "Affiche un livre spécifique sélectionné"
+  },
+  "options": {},
+  "attributes": {
+    "Livre": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::livre.livre",
+      "required": true
+    }
+  }
+}

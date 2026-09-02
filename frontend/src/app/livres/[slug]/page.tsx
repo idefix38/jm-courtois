@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { draftMode } from 'next/headers';
 import { getLivre, getLivres, getStrapiMedia } from '@/lib/strapi';
 import type { LivreData } from '@/types/strapi';
 import DetailLivre from '@/components/blocks/DetailLivre';
@@ -69,10 +70,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LivrePage({ params }: Props) {
   const { slug } = await params;
+  const { isEnabled: isPreview } = await draftMode();
 
   let livre: LivreData | undefined;
   try {
-    const res = await getLivre(slug) as { data: LivreData[] };
+    const res = await getLivre(slug, isPreview) as { data: LivreData[] };
     livre = res.data?.[0];
   } catch {
     notFound();

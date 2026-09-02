@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_page_builder_liste_actualites",
+    "info": {
+        "displayName": "Liste Actualités",
+        "icon": "calendar",
+        "description": "Affiche un titre suivi des N actualités les plus récentes et d'un lien vers tous les évènements"
+    },
+    "options": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "NombreActualites": {
+            "type": "integer",
+            "default": 3,
+            "min": 1
+        },
+        "Bouton": {
+            "type": "component",
+            "component": "component.bouton-cta",
+            "repeatable": false
+        }
+    }
+}

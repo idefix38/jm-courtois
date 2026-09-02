@@ -67,6 +67,7 @@ export interface TexteBlock {
     PreTitre?: string | null;
     Titre: string;
     Description: string;
+    Fond?: 'Uni' | 'Livre' | 'Barque' | null;
 }
 
 export interface ListeLivreBlock {
@@ -79,7 +80,21 @@ export interface ListeAvisBlock {
     id: number;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock;
+export interface ListeActualitesBlock {
+    __component: 'page-builder.liste-actualites';
+    id: number;
+    Titre: string;
+    NombreActualites?: number;
+    Bouton?: BoutonCta | null;
+}
+
+export interface BlocLivreBlock {
+    __component: 'page-builder.bloc-livre';
+    id: number;
+    Livre: LivreData;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 
@@ -146,5 +161,16 @@ export interface AvisData {
     Prenom: string;
     Sexe: 'Homme' | 'Femme';
     Date: string;
+}
+
+export interface ActualiteData {
+    id: number;
+    documentId: string;
+    Titre: string;
+    Url: string;
+    Lieu?: string | null;
+    Date: string;
+    Contenu: Block[];
+    Image?: StrapiImage | null;
 }
 

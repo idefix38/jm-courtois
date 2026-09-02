@@ -1,6 +1,6 @@
 import { getLivres } from '@/lib/strapi';
 import type { LivreData } from '@/types/strapi';
-import LivreBlock from './LivreBlock';
+import LivreBlock from '../Livre';
 import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
 // Bloc sans paramètre : affiche automatiquement tous les livres publiés

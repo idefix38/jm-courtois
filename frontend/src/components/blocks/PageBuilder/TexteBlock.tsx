@@ -2,22 +2,33 @@ import type { TexteBlock as TexteBlockType } from '@/types/strapi';
 import LaurierSeparator from '@/components/ui/LaurierSeparator';
 import RichText from '@/components/ui/RichText';
 
+// Uni : pas de fond ; Livre / Barque : illustration décorative associée
+const fondImage: Record<string, string | null> = {
+  Uni: null,
+  Livre: '/images/fond-livre-300x480.webp',
+  Barque: '/images/fond-livre2-300x480.webp',
+};
+
 export default function TexteBlock({ block }: { block: TexteBlockType }) {
+  const imageUrl = fondImage[block.Fond ?? 'Uni'];
+
   return (
-    <section className="relative overflow-hidden py-16 px-6 shadow-lg" style={{ backgroundColor: '#F6F2EE' }}>
-      {/* Illustration décorative, calée en haut à gauche, sans étirement au-delà de sa taille native (320px) */}
-      <div
-        className="hidden md:block absolute inset-y-0 left-0 w-2/5 pointer-events-none"
-        style={{
-          backgroundImage: 'url(/images/fond-livres-320x500.webp)',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'left center',
-          backgroundSize: 'auto',
-        }}
-      />
+    <section className="relative overflow-hidden py-16 px-6 shadow-lg" style={{ backgroundColor: '#F8F2EC' }}>
+      {/* Illustration décorative, calée en haut à gauche, sans étirement au-delà de sa taille native */}
+      {imageUrl && (
+        <div
+          className="hidden md:block absolute inset-y-0 left-0 w-2/5 pointer-events-none"
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'left center',
+            backgroundSize: 'auto',
+          }}
+        />
+      )}
 
       <div className="container mx-auto relative z-10">
-        <div className="max-w-xl mx-auto md:ml-[27%] md:mr-6">
+        <div className={imageUrl ? 'max-w-xl mx-auto md:ml-[31%] md:mr-6' : 'max-w-xl mx-auto md:max-w-3xl'}>
           <div className="text-center">
             {block.PreTitre && (
               <>

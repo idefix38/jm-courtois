@@ -455,6 +455,19 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Contenu: Schema.Attribute.DynamicZone<
+      [
+        'page-builder.hero',
+        'page-builder.texte-image',
+        'page-builder.citation',
+        'page-builder.titre',
+        'page-builder.texte',
+        'page-builder.liste-livre',
+        'page-builder.liste-avis',
+        'page-builder.liste-actualites',
+        'page-builder.bloc-livre',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -468,18 +481,11 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Texte: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Url: Schema.Attribute.UID<'Titre'> & Schema.Attribute.Required;
   };
 }
 
@@ -546,6 +552,8 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.texte',
         'page-builder.liste-livre',
         'page-builder.liste-avis',
+        'page-builder.liste-actualites',
+        'page-builder.bloc-livre',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -665,6 +673,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.texte',
         'page-builder.liste-livre',
         'page-builder.liste-avis',
+        'page-builder.liste-actualites',
+        'page-builder.bloc-livre',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -12,6 +12,19 @@ export interface ComponentBoutonCta extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderBlocLivre extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_bloc_livres';
+  info: {
+    description: 'Affiche un livre sp\u00E9cifique s\u00E9lectionn\u00E9';
+    displayName: 'Bloc Livre';
+    icon: 'book';
+  };
+  attributes: {
+    Livre: Schema.Attribute.Relation<'oneToOne', 'api::livre.livre'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface PageBuilderCitation extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_citations';
   info: {
@@ -51,6 +64,27 @@ export interface PageBuilderHero extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderListeActualites extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_liste_actualites';
+  info: {
+    description: "Affiche un titre suivi des N actualit\u00E9s les plus r\u00E9centes et d'un lien vers tous les \u00E9v\u00E8nements";
+    displayName: 'Liste Actualit\u00E9s';
+    icon: 'calendar';
+  };
+  attributes: {
+    Bouton: Schema.Attribute.Component<'component.bouton-cta', false>;
+    NombreActualites: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<3>;
+    Titre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PageBuilderListeAvis extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_liste_avis';
   info: {
@@ -87,6 +121,7 @@ export interface PageBuilderTexte extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    Fond: Schema.Attribute.Enumeration<['Uni', 'Livre', 'Barque']>;
     PreTitre: Schema.Attribute.String;
     Titre: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -176,8 +211,10 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'component.bouton-cta': ComponentBoutonCta;
+      'page-builder.bloc-livre': PageBuilderBlocLivre;
       'page-builder.citation': PageBuilderCitation;
       'page-builder.hero': PageBuilderHero;
+      'page-builder.liste-actualites': PageBuilderListeActualites;
       'page-builder.liste-avis': PageBuilderListeAvis;
       'page-builder.liste-livre': PageBuilderListeLivre;
       'page-builder.texte': PageBuilderTexte;

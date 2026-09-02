@@ -21,6 +21,14 @@
                 "preset": "defaultHtml"
             },
             "required": true
+        },
+        "Fond": {
+            "type": "enumeration",
+            "enum": [
+                "Uni",
+                "Livre",
+                "Barque"
+            ]
         }
     }
 }

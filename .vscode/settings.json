@@ -5,6 +5,7 @@
             "matchCommandLine": true
         },
         "timeout": true,
-        "docker compose": true
+        "docker compose": true,
+        "docker exec": true
     }
 }

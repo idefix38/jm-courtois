@@ -1,6 +1,6 @@
 import { getAvis } from '@/lib/strapi';
 import type { AvisData } from '@/types/strapi';
-import AvisCard from './AvisCard';
+import AvisCard from '../AvisCard';
 import LaurierSeparator from '@/components/ui/LaurierSeparator';
 
 // Bloc sans paramètre : affiche tous les avis publiés, triés par date décroissante (déjà trié par getAvis)

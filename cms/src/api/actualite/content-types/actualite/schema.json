@@ -16,6 +16,11 @@
       "type": "string",
       "required": true
     },
+    "Url": {
+      "type": "uid",
+      "targetField": "Titre",
+      "required": true
+    },
     "Lieu": {
       "type": "string"
     },
@@ -23,13 +28,19 @@
       "type": "date",
       "required": true
     },
-    "Texte": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "required": true
+    "Contenu": {
+      "type": "dynamiczone",
+      "components": [
+        "page-builder.hero",
+        "page-builder.texte-image",
+        "page-builder.citation",
+        "page-builder.titre",
+        "page-builder.texte",
+        "page-builder.liste-livre",
+        "page-builder.liste-avis",
+        "page-builder.liste-actualites",
+        "page-builder.bloc-livre"
+      ]
     },
     "Image": {
       "type": "media",
