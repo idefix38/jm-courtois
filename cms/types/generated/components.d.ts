@@ -12,6 +12,22 @@ export interface ComponentBoutonCta extends Struct.ComponentSchema {
   };
 }
 
+export interface PageBuilderBlocActualite extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_bloc_actualites';
+  info: {
+    description: 'Affiche une actualit\u00E9 sp\u00E9cifique s\u00E9lectionn\u00E9e, en d\u00E9tail';
+    displayName: 'Bloc Actualit\u00E9';
+    icon: 'calendar';
+  };
+  attributes: {
+    Actualite: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::actualite.actualite'
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface PageBuilderBlocLivre extends Struct.ComponentSchema {
   collectionName: 'components_page_builder_bloc_livres';
   info: {
@@ -211,6 +227,7 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'component.bouton-cta': ComponentBoutonCta;
+      'page-builder.bloc-actualite': PageBuilderBlocActualite;
       'page-builder.bloc-livre': PageBuilderBlocLivre;
       'page-builder.citation': PageBuilderCitation;
       'page-builder.hero': PageBuilderHero;

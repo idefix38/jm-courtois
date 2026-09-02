@@ -1,0 +1,67 @@
+{
+  "key": "plugin_content_manager_configuration_components::page-builder.bloc-actualite",
+  "value": {
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "relationOpenMode": "modal",
+      "mainField": "documentId",
+      "defaultSortBy": "documentId",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Actualite": {
+        "edit": {
+          "label": "Actualite",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "Titre"
+        },
+        "list": {
+          "label": "Actualite",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "documentId": {
+        "edit": {},
+        "list": {
+          "label": "documentId",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "Actualite"
+      ],
+      "edit": [
+        [
+          {
+            "name": "Actualite",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "uid": "page-builder.bloc-actualite",
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

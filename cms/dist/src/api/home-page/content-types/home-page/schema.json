@@ -22,7 +22,8 @@
                 "page-builder.liste-livre",
                 "page-builder.liste-avis",
                 "page-builder.liste-actualites",
-                "page-builder.bloc-livre"
+                "page-builder.bloc-livre",
+                "page-builder.bloc-actualite"
             ]
         },
         "Seo": {

@@ -38,7 +38,7 @@ export default function Livre({ livre }: { livre: LivreData }) {
         <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
 
           {coverUrl && (
-            <div className="shrink-0 w-32 md:w-1/5">
+            <Link href={`/livres/${livre.Slug}`} className="shrink-0 w-32 md:w-1/5">
               <div className="relative aspect-[2/3]">
                 <Image
                   src={coverUrl}
@@ -48,7 +48,7 @@ export default function Livre({ livre }: { livre: LivreData }) {
                   className="object-cover rounded"
                 />
               </div>
-            </div>
+            </Link>
           )}
 
           <div className="flex-1 min-w-0 md:w-4/5">
@@ -61,7 +61,7 @@ export default function Livre({ livre }: { livre: LivreData }) {
             <div className="w-12 h-1 mt-1 mb-4" style={{ backgroundColor: '#B5883D' }} />
 
             <h2 className="font-serif text-3xl md:text-4xl text-vert-profond mb-3 leading-tight">
-              {livre.Titre}
+              <Link href={`/livres/${livre.Slug}`} className="hover:underline">{livre.Titre}</Link>
             </h2>
 
             {livre.SousTitre && (

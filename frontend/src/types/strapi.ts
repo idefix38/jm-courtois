@@ -94,7 +94,13 @@ export interface BlocLivreBlock {
     Livre: LivreData;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock;
+export interface BlocActualiteBlock {
+    __component: 'page-builder.bloc-actualite';
+    id: number;
+    Actualite: ActualiteData;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock | BlocActualiteBlock;
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 
@@ -170,6 +176,8 @@ export interface ActualiteData {
     Url: string;
     Lieu?: string | null;
     Date: string;
+    Heure?: string | null;
+    Description: string;
     Contenu: Block[];
     Image?: StrapiImage | null;
 }

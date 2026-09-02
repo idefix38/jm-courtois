@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_builder_bloc_actualites",
+  "info": {
+    "displayName": "Bloc Actualité",
+    "icon": "calendar",
+    "description": "Affiche une actualité spécifique sélectionnée, en détail"
+  },
+  "options": {},
+  "attributes": {
+    "Actualite": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::actualite.actualite",
+      "required": true
+    }
+  }
+}

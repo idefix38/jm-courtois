@@ -76,16 +76,44 @@
           "sortable": true
         }
       },
-      "Texte": {
+      "Heure": {
         "edit": {
-          "label": "Texte",
+          "label": "Heure",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "Texte",
+          "label": "Heure",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Description": {
+        "edit": {
+          "label": "Description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Contenu": {
+        "edit": {
+          "label": "Contenu",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Contenu",
           "searchable": false,
           "sortable": false
         }
@@ -195,13 +223,23 @@
             "size": 4
           },
           {
+            "name": "Heure",
+            "size": 4
+          },
+          {
             "name": "Lieu",
-            "size": 6
+            "size": 4
           }
         ],
         [
           {
-            "name": "Texte",
+            "name": "Description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Contenu",
             "size": 12
           }
         ]

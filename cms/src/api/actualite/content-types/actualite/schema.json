@@ -28,6 +28,17 @@
       "type": "date",
       "required": true
     },
+    "Heure": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
     "Contenu": {
       "type": "dynamiczone",
       "components": [

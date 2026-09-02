@@ -6,10 +6,10 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "relationOpenMode": "modal",
       "mainField": "Titre",
       "defaultSortBy": "Titre",
-      "defaultSortOrder": "ASC"
+      "defaultSortOrder": "ASC",
+      "relationOpenMode": "modal"
     },
     "metadatas": {
       "id": {
@@ -51,7 +51,7 @@
       "Note": {
         "edit": {
           "label": "Note",
-          "description": "",
+          "description": "de 1 à 5",
           "placeholder": "",
           "visible": true,
           "editable": true
@@ -72,6 +72,20 @@
         },
         "list": {
           "label": "Prenom",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "Sexe": {
+        "edit": {
+          "label": "Sexe",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Sexe",
           "searchable": true,
           "sortable": true
         }
@@ -158,12 +172,6 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "Titre",
-        "Texte",
-        "Note"
-      ],
       "edit": [
         [
           {
@@ -189,8 +197,18 @@
           {
             "name": "Date",
             "size": 4
+          },
+          {
+            "name": "Sexe",
+            "size": 6
           }
         ]
+      ],
+      "list": [
+        "id",
+        "Titre",
+        "Texte",
+        "Note"
       ]
     },
     "uid": "api::avi.avi"

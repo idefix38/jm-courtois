@@ -14,7 +14,7 @@
             "name": "Apache 2.0",
             "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "x-generation-date": "2026-09-02T14:52:56.601Z"
+        "x-generation-date": "2026-09-02T16:06:36.873Z"
     },
     "x-strapi-config": {
         "plugins": [
@@ -4230,7 +4230,8 @@
                         "required": [
                             "Titre",
                             "Url",
-                            "Date"
+                            "Date",
+                            "Description"
                         ],
                         "type": "object",
                         "properties": {
@@ -4246,6 +4247,12 @@
                             "Date": {
                                 "type": "string",
                                 "format": "date"
+                            },
+                            "Heure": {
+                                "type": "string"
+                            },
+                            "Description": {
+                                "type": "string"
                             },
                             "Contenu": {
                                 "type": "array",
@@ -4367,7 +4374,8 @@
                 "required": [
                     "Titre",
                     "Url",
-                    "Date"
+                    "Date",
+                    "Description"
                 ],
                 "properties": {
                     "id": {
@@ -4395,6 +4403,12 @@
                     "Date": {
                         "type": "string",
                         "format": "date"
+                    },
+                    "Heure": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
                     },
                     "Contenu": {
                         "type": "array",
@@ -4697,6 +4711,12 @@
                                 "Date": {
                                     "type": "string",
                                     "format": "date"
+                                },
+                                "Heure": {
+                                    "type": "string"
+                                },
+                                "Description": {
+                                    "type": "string"
                                 },
                                 "Contenu": {
                                     "type": "array",
@@ -6720,6 +6740,9 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                         }
                                     ]
                                 },
@@ -6734,7 +6757,8 @@
                                         "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                         "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                         "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                        "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                        "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                        "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                     }
                                 }
                             },
@@ -6843,6 +6867,9 @@
                                 },
                                 {
                                     "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                 }
                             ]
                         },
@@ -6857,7 +6884,8 @@
                                 "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                 "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                 "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                             }
                         }
                     },
@@ -6963,6 +6991,9 @@
                                             },
                                             {
                                                 "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                             }
                                         ]
                                     },
@@ -6977,7 +7008,8 @@
                                             "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                             "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                             "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                            "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                            "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                            "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                         }
                                     }
                                 },
@@ -7069,6 +7101,45 @@
                     },
                     "meta": {
                         "type": "object"
+                    }
+                }
+            },
+            "PageBuilderBlocActualiteComponent": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "number"
+                            }
+                        ]
+                    },
+                    "__component": {
+                        "type": "string",
+                        "enum": [
+                            "page-builder.bloc-actualite"
+                        ]
+                    },
+                    "Actualite": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "number"
+                                    }
+                                ]
+                            },
+                            "documentId": {
+                                "type": "string"
+                            }
+                        }
                     }
                 }
             },
@@ -9766,6 +9837,9 @@
                                         },
                                         {
                                             "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                         }
                                     ]
                                 },
@@ -9780,7 +9854,8 @@
                                         "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                         "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                         "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                        "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                        "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                        "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                     }
                                 }
                             },
@@ -9899,6 +9974,9 @@
                                 },
                                 {
                                     "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                 }
                             ]
                         },
@@ -9913,7 +9991,8 @@
                                 "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                 "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                 "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                             }
                         }
                     },
@@ -10025,6 +10104,9 @@
                                             },
                                             {
                                                 "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                            },
+                                            {
+                                                "$ref": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                             }
                                         ]
                                     },
@@ -10039,7 +10121,8 @@
                                             "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                                             "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                                             "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                                            "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                                            "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                                            "page-builder.bloc-actualite": "#/components/schemas/PageBuilderBlocActualiteComponent"
                                         }
                                     }
                                 },

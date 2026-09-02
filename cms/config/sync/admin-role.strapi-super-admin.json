@@ -160,7 +160,85 @@
       "locale": null
     },
     {
-      "documentId": "mw9q23bpnaj0ecf0mbum5ube",
+      "documentId": "tk3c81nw6l7hsl5yqgfljala",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "Date",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "us7dnzpxaikxi8k86r8dzc6k",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "prcgma9eex23pup2048okf2m",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "ordt5dk23zye15wscu5ckozd",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "Date",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "a7exzbsjtyvjpqdkxtsrj0n2",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "Date",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "qk3lka083ho4wcqr8mo8pjzc",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::avi.avi",
@@ -170,6 +248,7 @@
           "Texte",
           "Note",
           "Prenom",
+          "Sexe",
           "Date"
         ]
       },
@@ -195,7 +274,7 @@
       "locale": null
     },
     {
-      "documentId": "s8rn14iuq0ur21xjso683obk",
+      "documentId": "btpxnmanagr9fowg5ftp4i7p",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::avi.avi",
@@ -205,6 +284,7 @@
           "Texte",
           "Note",
           "Prenom",
+          "Sexe",
           "Date"
         ]
       },
@@ -212,7 +292,7 @@
       "locale": null
     },
     {
-      "documentId": "c02vpwa1irg67veikq4jhywf",
+      "documentId": "bpuq8v5a3jk6blkqwmvdzfe3",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::avi.avi",
@@ -222,6 +302,7 @@
           "Texte",
           "Note",
           "Prenom",
+          "Sexe",
           "Date"
         ]
       },
@@ -298,13 +379,14 @@
       "locale": null
     },
     {
-      "documentId": "qm7tx2tdrp5mahbc0mxeml59",
+      "documentId": "fzoq48fem8wmmghkylg034q9",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::livre.livre",
       "properties": {
         "fields": [
           "Titre",
+          "SousTitre",
           "Slug",
           "Auteur",
           "Editeur",
@@ -348,13 +430,14 @@
       "locale": null
     },
     {
-      "documentId": "i8ghnu55c1chkbdldajrzsv5",
+      "documentId": "qqkwacef19gwp2gaquq3u02u",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::livre.livre",
       "properties": {
         "fields": [
           "Titre",
+          "SousTitre",
           "Slug",
           "Auteur",
           "Editeur",
@@ -380,13 +463,14 @@
       "locale": null
     },
     {
-      "documentId": "xftgzg0v769ke242rrnomnz0",
+      "documentId": "o6mr5irzbl2hz8mk9po2japd",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::livre.livre",
       "properties": {
         "fields": [
           "Titre",
+          "SousTitre",
           "Slug",
           "Auteur",
           "Editeur",

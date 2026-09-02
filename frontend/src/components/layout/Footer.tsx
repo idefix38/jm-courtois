@@ -1,9 +1,12 @@
+import Image from 'next/image';
+
 const INSTAGRAM_URL = 'https://www.instagram.com/jm.courtois';
+const LES_IMPLIQUES_URL = 'https://www.lesimpliques.fr/';
 
 export default function Footer() {
   return (
     <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-6 flex items-center gap-4 text-sm">
+      <div className="container mx-auto px-6 py-6 flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm">
         <p className="font-script text-3xl text-white leading-none" style={{ fontFamily: 'var(--font-corinthia), cursive' }}>
           Jm Courtois
         </p>
@@ -30,8 +33,19 @@ export default function Footer() {
         <span className="w-px h-4 bg-white/20" />
 
         <p className="text-xs font-display tracking-widest">&copy; {new Date().getFullYear()} Tous droits réservés</p>
+
+        <a
+          href={LES_IMPLIQUES_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Les Impliqués éditeur"
+          className="md:ml-auto shrink-0"
+        >
+          <Image src="/images/les-impliques.webp" alt="Les Impliqués éditeur" width={120} height={40} className="h-8 w-auto" />
+        </a>
       </div>
     </footer>
   );
 }
+
 

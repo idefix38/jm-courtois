@@ -472,6 +472,15 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Date: Schema.Attribute.Date & Schema.Attribute.Required;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    Heure: Schema.Attribute.String;
     Image: Schema.Attribute.Media<'images'>;
     Lieu: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -554,6 +563,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
+        'page-builder.bloc-actualite',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -675,6 +685,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
+        'page-builder.bloc-actualite',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

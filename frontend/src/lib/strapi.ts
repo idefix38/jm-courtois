@@ -41,7 +41,7 @@ async function fetchAPI<T>(path: string, options: FetchOptions = {}): Promise<T>
 }
 
 // Populate d'une zone dynamique : populate générique pour tous les composants,
-// sauf "bloc-livre" dont la relation Livre doit être populée en profondeur (couverture incluse)
+// sauf "bloc-livre"/"bloc-actualite" dont la relation doit être populée en profondeur (média inclus)
 const DYNAMIC_ZONE_POPULATE = {
     on: {
         "page-builder.hero": { populate: "*" },
@@ -53,6 +53,7 @@ const DYNAMIC_ZONE_POPULATE = {
         "page-builder.liste-avis": { populate: "*" },
         "page-builder.liste-actualites": { populate: "*" },
         "page-builder.bloc-livre": { populate: { Livre: { populate: { Couverture: true } } } },
+        "page-builder.bloc-actualite": { populate: { Actualite: { populate: { Image: true } } } },
     },
 };
 
