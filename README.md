@@ -20,4 +20,3 @@ Le site est prévu pour tourner en conteneurs Docker sur un serveur qui héberge
 ### À chaque push sur `main`
 
 Le workflow construit et pousse les images (tag `latest` + SHA du commit), puis exécute sur le serveur : `git reset --hard`, `docker compose pull`, `docker compose up -d --remove-orphans`.
-
