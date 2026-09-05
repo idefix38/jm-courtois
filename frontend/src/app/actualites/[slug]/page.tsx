@@ -86,7 +86,7 @@ export default async function ActualitePage({ params }: Props) {
         <BlocActualiteBlock block={{ __component: 'page-builder.bloc-actualite', id: actualite.id, Actualite: actualite }} />
       </div>
       <div className={BLOCK_SPACING_CLASS}>
-        <DynamicZone blocks={actualite.Contenu} skipTopPadding />
+        <DynamicZone blocks={actualite.Contenu} skipTopPadding source={{ type: 'actualite', slug }} />
       </div>
     </>
   );

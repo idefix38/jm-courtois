@@ -7,6 +7,7 @@ const fondImage: Record<string, string | null> = {
   'Cerf-volant': '/images/cerf-volant-1024x500.webp',
   Herbes: '/images/herbes-sauvages-1024x300.webp',
   Uni: null,
+  Livre: '/images/fond-livre-1024x500.webp',
 };
 
 export default function CitationBlock({ block }: { block: CitationBlockType }) {

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-09-02T17:40:37.515Z"
+    "x-generation-date": "2026-09-05T14:03:29.461Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -4284,6 +4284,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageBuilderContactComponent"
                     }
                   ]
                 },
@@ -4298,7 +4301,8 @@
                     "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                     "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                     "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                    "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                   }
                 }
               },
@@ -4440,6 +4444,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageBuilderContactComponent"
                 }
               ]
             },
@@ -4454,7 +4461,8 @@
                 "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                 "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                 "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
               }
             }
           },
@@ -4748,6 +4756,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageBuilderContactComponent"
                       }
                     ]
                   },
@@ -4762,7 +4773,8 @@
                       "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                       "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                       "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                      "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                     }
                   }
                 },
@@ -5524,7 +5536,8 @@
               "Nuages",
               "Cerf-volant",
               "Herbes",
-              "Uni"
+              "Uni",
+              "Livre"
             ]
           }
         }
@@ -5705,6 +5718,37 @@
                 "type": "string"
               }
             }
+          }
+        }
+      },
+      "PageBuilderContactComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "page-builder.contact"
+            ]
+          },
+          "Titre": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "EmailDestination": {
+            "type": "string",
+            "format": "email"
           }
         }
       },
@@ -6752,6 +6796,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageBuilderContactComponent"
                     }
                   ]
                 },
@@ -6766,7 +6813,8 @@
                     "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                     "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                     "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                    "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                   }
                 }
               },
@@ -6875,6 +6923,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageBuilderContactComponent"
                 }
               ]
             },
@@ -6889,7 +6940,8 @@
                 "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                 "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                 "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
               }
             }
           },
@@ -6995,6 +7047,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageBuilderContactComponent"
                       }
                     ]
                   },
@@ -7009,7 +7064,8 @@
                       "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                       "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                       "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                      "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                     }
                   }
                 },
@@ -9798,6 +9854,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PageBuilderContactComponent"
                     }
                   ]
                 },
@@ -9812,7 +9871,8 @@
                     "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                     "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                     "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                    "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                    "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                   }
                 }
               },
@@ -9931,6 +9991,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PageBuilderContactComponent"
                 }
               ]
             },
@@ -9945,7 +10008,8 @@
                 "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                 "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                 "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
               }
             }
           },
@@ -10057,6 +10121,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PageBuilderContactComponent"
                       }
                     ]
                   },
@@ -10071,7 +10138,8 @@
                       "page-builder.liste-livre": "#/components/schemas/PageBuilderListeLivreComponent",
                       "page-builder.liste-avis": "#/components/schemas/PageBuilderListeAvisComponent",
                       "page-builder.liste-actualites": "#/components/schemas/PageBuilderListeActualitesComponent",
-                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent"
+                      "page-builder.bloc-livre": "#/components/schemas/PageBuilderBlocLivreComponent",
+                      "page-builder.contact": "#/components/schemas/PageBuilderContactComponent"
                     }
                   }
                 },

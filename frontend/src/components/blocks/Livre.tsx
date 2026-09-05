@@ -106,10 +106,10 @@ export default function Livre({ livre }: { livre: LivreData }) {
                 En savoir plus
               </Link>
               {livre.LienAmazon && (
-                <BoutonCta bouton={{ id: -1, Titre: 'Acheter sur Amazon', Url: livre.LienAmazon, Style: 'Secondaire' }} />
+                <BoutonCta bouton={{ id: -1, Titre: 'Acheter sur Amazon', Url: livre.LienAmazon, Style: 'Secondaire' }} gtmEvent="Clic_Amazon" />
               )}
               {livre.LienFnac && (
-                <BoutonCta bouton={{ id: -2, Titre: 'Acheter sur Fnac', Url: livre.LienFnac, Style: 'Secondaire' }} />
+                <BoutonCta bouton={{ id: -2, Titre: 'Acheter sur Fnac', Url: livre.LienFnac, Style: 'Secondaire' }} gtmEvent="Clic_Fnac" />
               )}
             </div>
           </div>

@@ -53,6 +53,7 @@ const DYNAMIC_ZONE_POPULATE = {
         "page-builder.liste-avis": { populate: "*" },
         "page-builder.liste-actualites": { populate: "*" },
         "page-builder.bloc-livre": { populate: { Livre: { populate: { Couverture: true } } } },
+        "page-builder.contact": { populate: "*" },
     },
 };
 

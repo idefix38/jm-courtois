@@ -29,7 +29,8 @@
                 "Nuages",
                 "Cerf-volant",
                 "Herbes",
-                "Uni"
+                "Uni",
+                "Livre"
             ],
             "default": "Nuages",
             "required": true

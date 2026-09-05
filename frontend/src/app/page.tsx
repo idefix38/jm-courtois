@@ -23,7 +23,7 @@ export default async function HomePage() {
   try {
     const res = await getHome(isPreview) as { data: HomeData };
     const blocks = res.data?.dynamicZone ?? [];
-    return <DynamicZone blocks={blocks} />;
+    return <DynamicZone blocks={blocks} source={{ type: 'home' }} />;
   } catch {
     return (
       <div className="container mx-auto px-6 py-24 text-center">

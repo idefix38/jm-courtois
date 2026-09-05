@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import type { BoutonCta as BoutonCtaType } from '@/types/strapi';
+import { pushToDataLayer } from '@/lib/gtm';
 
 const styles: Record<BoutonCtaType['Style'], React.CSSProperties> = {
   Primaire:   { background: '#45645B', color: '#fff', padding: '0.875rem 1.75rem' },
@@ -7,11 +10,12 @@ const styles: Record<BoutonCtaType['Style'], React.CSSProperties> = {
   Link:       { color: '#24333A' },
 };
 
-export default function BoutonCta({ bouton }: { bouton: BoutonCtaType }) {
+export default function BoutonCta({ bouton, gtmEvent }: { bouton: BoutonCtaType; gtmEvent?: string }) {
   if (!bouton.Url) return null;
   return (
     <Link
       href={bouton.Url}
+      onClick={gtmEvent ? () => pushToDataLayer(gtmEvent) : undefined}
       className="inline-block text-center font-display font-semibold text-xs uppercase tracking-widest transition-all duration-200"
       style={styles[bouton.Style]}
     >

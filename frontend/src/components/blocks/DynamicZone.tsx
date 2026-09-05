@@ -1,4 +1,4 @@
-import type { Block } from '@/types/strapi';
+import type { Block, DynamicZoneSource } from '@/types/strapi';
 import HeroBlock from './PageBuilder/HeroBlock';
 import TexteImageBlock from './PageBuilder/TexteImageBlock';
 import CitationBlock from './PageBuilder/CitationBlock';
@@ -8,9 +8,10 @@ import ListeLivreBlock from './PageBuilder/ListeLivreBlock';
 import ListeAvisBlock from './PageBuilder/ListeAvisBlock';
 import ListeActualitesBlock from './PageBuilder/ListeActualitesBlock';
 import LivreBlock from './PageBuilder/LivreBlock';
+import ContactBlock from './PageBuilder/ContactBlock';
 import { BLOCK_SPACING_CLASS } from '@/lib/constants';
 
-export default function DynamicZone({ blocks, skipTopPadding = false }: { blocks: Block[]; skipTopPadding?: boolean }) {
+export default function DynamicZone({ blocks, skipTopPadding = false, source }: { blocks: Block[]; skipTopPadding?: boolean; source?: DynamicZoneSource }) {
   if (!blocks?.length) return null;
 
   // Le Hero s'étend sous le header transparent (desktop) ; les autres blocs doivent commencer sous le header
@@ -39,6 +40,8 @@ export default function DynamicZone({ blocks, skipTopPadding = false }: { blocks
             return <div key={`liste-actualites-${block.id}`} className={spacing}><ListeActualitesBlock block={block} /></div>;
           case 'page-builder.bloc-livre':
             return <div key={`bloc-livre-${block.id}`} className={spacing}><LivreBlock block={block} /></div>;
+          case 'page-builder.contact':
+            return source ? <div key={`contact-${block.id}`} className={spacing}><ContactBlock block={block} source={source} /></div> : null;
           default:
             return null;
         }
@@ -47,3 +50,4 @@ export default function DynamicZone({ blocks, skipTopPadding = false }: { blocks
     </div>
   );
 }
+

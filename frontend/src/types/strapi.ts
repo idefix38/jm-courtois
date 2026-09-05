@@ -52,7 +52,7 @@ export interface CitationBlock {
     Titre?: string | null;
     Description: string;
     Bouton?: BoutonCta | null;
-    Style: 'Nuages' | 'Cerf-volant' | 'Herbes' | 'Uni';
+    Style: 'Nuages' | 'Cerf-volant' | 'Herbes' | 'Uni' | 'Livre';
 }
 
 export interface TitreBlock {
@@ -102,7 +102,22 @@ export interface BlocActualiteBlock {
     Actualite: ActualiteData;
 }
 
-export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock;
+export interface ContactBlock {
+    __component: 'page-builder.contact';
+    id: number;
+    Titre: string;
+    Description?: string | null;
+    // Ne jamais transmettre ce champ à un composant client : la destination doit rester connue du seul serveur
+    EmailDestination: string;
+}
+
+export type Block = HeroBlock | TexteImageBlock | CitationBlock | TitreBlock | TexteBlock | ListeLivreBlock | ListeAvisBlock | ListeActualitesBlock | BlocLivreBlock | ContactBlock;
+
+// Référence la source (contenu Strapi) d'une zone dynamique, utilisée pour revérifier côté serveur les données sensibles d'un bloc (ex. EmailDestination du bloc Contact)
+export type DynamicZoneSource =
+    | { type: 'home' }
+    | { type: 'page'; slug: string }
+    | { type: 'actualite'; slug: string };
 
 // ── Composants partagés ──────────────────────────────────────────────────────
 

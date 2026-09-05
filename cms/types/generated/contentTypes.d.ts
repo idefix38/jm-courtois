@@ -466,6 +466,7 @@ export interface ApiActualiteActualite extends Struct.CollectionTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
+        'page-builder.contact',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -563,6 +564,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
+        'page-builder.contact',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -684,6 +686,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-builder.liste-avis',
         'page-builder.liste-actualites',
         'page-builder.bloc-livre',
+        'page-builder.contact',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

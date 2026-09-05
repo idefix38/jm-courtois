@@ -43,11 +43,25 @@ export interface PageBuilderCitation extends Struct.ComponentSchema {
         }
       >;
     Style: Schema.Attribute.Enumeration<
-      ['Nuages', 'Cerf-volant', 'Herbes', 'Uni']
+      ['Nuages', 'Cerf-volant', 'Herbes', 'Uni', 'Livre']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Nuages'>;
     Titre: Schema.Attribute.String;
+  };
+}
+
+export interface PageBuilderContact extends Struct.ComponentSchema {
+  collectionName: 'components_page_builder_contacts';
+  info: {
+    description: "Formulaire de contact envoyant un e-mail \u00E0 l'adresse configur\u00E9e";
+    displayName: 'Contact';
+    icon: 'envelop';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    EmailDestination: Schema.Attribute.Email & Schema.Attribute.Required;
+    Titre: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -219,6 +233,7 @@ declare module '@strapi/strapi' {
       'component.bouton-cta': ComponentBoutonCta;
       'page-builder.bloc-livre': PageBuilderBlocLivre;
       'page-builder.citation': PageBuilderCitation;
+      'page-builder.contact': PageBuilderContact;
       'page-builder.hero': PageBuilderHero;
       'page-builder.liste-actualites': PageBuilderListeActualites;
       'page-builder.liste-avis': PageBuilderListeAvis;

@@ -38,7 +38,7 @@ export default async function DynamicPage({ params }: Props) {
 
   return (
     <>            
-      {page.Contenu?.length > 0 && <DynamicZone blocks={page.Contenu} />}
+      {page.Contenu?.length > 0 && <DynamicZone blocks={page.Contenu} source={{ type: 'page', slug }} />}
     </>
   );
 }

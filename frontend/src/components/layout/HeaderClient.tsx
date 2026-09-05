@@ -50,9 +50,9 @@ export default function HeaderClient({ items }: { items: MenuItemData[] }) {
           )}
         </button>
 
-        {/* Navigation desktop — centrée absolument */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2">
-          <ul className="flex items-center gap-8">
+        {/* Navigation desktop — centrée absolument (inset-x-0 + justify-center : évite que le calcul de largeur "shrink-to-fit" d'un `left-1/2` ne coupe l'espace disponible en deux et force le texte à passer à la ligne) */}
+        <nav className="hidden md:flex absolute inset-x-0 justify-center pointer-events-none">
+          <ul className="flex items-center gap-8 pointer-events-auto">
             {items.map((item) => {
               const active = pathname === item.Url;
               return (
@@ -60,7 +60,7 @@ export default function HeaderClient({ items }: { items: MenuItemData[] }) {
                   <Link
                     href={item.Url}
                     className={[
-                      'py-2 text-xs font-display font-semibold uppercase tracking-widest transition-all duration-200 block border-b-2',
+                      'py-2 text-xs font-display font-semibold uppercase tracking-widest transition-all duration-200 block border-b-2 whitespace-nowrap',
                       active
                         ? 'text-anthracite border-vert-gris'
                         : 'text-anthracite border-transparent hover:border-beige',

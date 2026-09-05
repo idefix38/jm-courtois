@@ -1,0 +1,22 @@
+{
+    "collectionName": "components_page_builder_contacts",
+    "info": {
+        "displayName": "Contact",
+        "icon": "envelop",
+        "description": "Formulaire de contact envoyant un e-mail à l'adresse configurée"
+    },
+    "options": {},
+    "attributes": {
+        "Titre": {
+            "type": "string",
+            "required": true
+        },
+        "Description": {
+            "type": "text"
+        },
+        "EmailDestination": {
+            "type": "email",
+            "required": true
+        }
+    }
+}

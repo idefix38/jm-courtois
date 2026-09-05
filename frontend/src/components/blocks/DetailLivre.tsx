@@ -94,10 +94,10 @@ export default function DetailLivre({ livre }: { livre: LivreData }) {
           {/* Boutons d'achat, pleine largeur du bloc et centrés */}
           <div className="col-span-2 md:col-span-12 flex flex-nowrap items-center justify-center gap-3">
             {livre.LienAmazon && (
-              <BoutonCta bouton={{ id: -1, Titre: 'Acheter sur Amazon', Url: livre.LienAmazon, Style: 'Primaire' }} />
+              <BoutonCta bouton={{ id: -1, Titre: 'Acheter sur Amazon', Url: livre.LienAmazon, Style: 'Primaire' }} gtmEvent="Clic_Amazon" />
             )}
             {livre.LienFnac && (
-              <BoutonCta bouton={{ id: -2, Titre: 'Acheter sur Fnac', Url: livre.LienFnac, Style: 'Primaire' }} />
+              <BoutonCta bouton={{ id: -2, Titre: 'Acheter sur Fnac', Url: livre.LienFnac, Style: 'Primaire' }} gtmEvent="Clic_Fnac" />
             )}
           </div>
 
