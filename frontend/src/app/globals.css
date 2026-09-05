@@ -39,3 +39,34 @@
   .hover\:text-vert-profond:hover { color: #24333A; }
   .text-vert-gris  { color: #7A8D7D; }
 }
+
+/* Bannière de consentement cookies (vanilla-cookieconsent) adaptée à la charte graphique */
+:root {
+  --cc-font-family: var(--font-source-sans), system-ui, sans-serif;
+  --cc-bg: #F6F6F2;
+  --cc-primary-color: #1E1E1E;
+  --cc-secondary-color: #6F6F6F;
+  --cc-btn-primary-bg: #24333A;
+  --cc-btn-primary-color: #F6F6F2;
+  --cc-btn-primary-hover-bg: #45645B;
+  --cc-btn-primary-hover-color: #F6F6F2;
+  --cc-btn-secondary-bg: #E9E5DB;
+  --cc-btn-secondary-color: #1E1E1E;
+  --cc-btn-secondary-hover-bg: #C8B99A;
+  --cc-btn-secondary-hover-color: #1E1E1E;
+  --cc-toggle-on-bg: #45645B;
+  --cc-toggle-off-bg: #C8B99A;
+  --cc-toggle-on-knob-bg: #F6F6F2;
+  --cc-toggle-off-knob-bg: #F6F6F2;
+  --cc-toggle-readonly-bg: #7A8D7D;
+  --cc-toggle-readonly-knob-bg: #E9E5DB;
+  --cc-separator-border-color: #E9E5DB;
+  --cc-cookie-category-block-bg: #F6F6F2;
+  --cc-cookie-category-block-bg-hover: #E9E5DB;
+  --cc-cookie-category-block-border: #E9E5DB;
+  --cc-cookie-category-expanded-block-bg: #F6F6F2;
+  --cc-overlay-bg: rgba(30, 30, 30, 0.6);
+  --cc-modal-border-radius: 0.5rem;
+  --cc-btn-border-radius: 0.375rem;
+}
+

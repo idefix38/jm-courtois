@@ -1,4 +1,4 @@
-export default [
+export default ({ env }: { env: any }) => [
     'strapi::logger',
     'strapi::errors',
     {
@@ -19,7 +19,13 @@ export default [
         name: 'strapi::cors',
         config: {
             headers: '*',
-            origin: ['http://localhost:3000', 'http://frontend:3000', 'http://frontend.jm-courtois.local'],
+            origin: [
+                'http://localhost:3000',
+                'http://frontend:3000',
+                'http://frontend.jm-courtois.local',
+                // URL publique du frontend en production (ex: https://www.jm-courtois.com)
+                ...(env('CLIENT_URL') ? [env('CLIENT_URL')] : []),
+            ],
         },
     },
     'strapi::poweredBy',

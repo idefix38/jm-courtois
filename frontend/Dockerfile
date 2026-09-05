@@ -13,6 +13,9 @@ CMD ["npm", "run", "dev"]
 # ── Build ─────────────────────────────────────────────────────────────────────
 FROM development AS builder
 ENV NEXT_TELEMETRY_DISABLED=1
+# Seule NEXT_PUBLIC_* doit être connue au build (elle est inlinée dans le bundle client) ; les secrets restent des variables d'exécution
+ARG NEXT_PUBLIC_STRAPI_URL
+ENV NEXT_PUBLIC_STRAPI_URL=${NEXT_PUBLIC_STRAPI_URL}
 RUN npm run build
 
 # ── Production ────────────────────────────────────────────────────────────────

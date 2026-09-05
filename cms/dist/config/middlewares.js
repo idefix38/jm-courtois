@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = [
+exports.default = ({ env }) => [
     'strapi::logger',
     'strapi::errors',
     {
@@ -21,7 +21,13 @@ exports.default = [
         name: 'strapi::cors',
         config: {
             headers: '*',
-            origin: ['http://localhost:3000', 'http://frontend:3000', 'http://frontend.jm-courtois.local'],
+            origin: [
+                'http://localhost:3000',
+                'http://frontend:3000',
+                'http://frontend.jm-courtois.local',
+                // URL publique du frontend en production (ex: https://www.jm-courtois.com)
+                ...(env('CLIENT_URL') ? [env('CLIENT_URL')] : []),
+            ],
         },
     },
     'strapi::poweredBy',

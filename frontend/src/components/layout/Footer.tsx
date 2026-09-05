@@ -28,7 +28,13 @@ export default function Footer() {
 
         <span className="w-px h-4 bg-white/20" />
 
-        <p className="text-xs font-display tracking-widest">Cookies</p>
+        <button
+          type="button"
+          data-cc="show-preferencesModal"
+          className="text-xs font-display tracking-widest hover:text-beige transition-colors cursor-pointer"
+        >
+          Cookies
+        </button>
 
         <span className="w-px h-4 bg-white/20" />
 

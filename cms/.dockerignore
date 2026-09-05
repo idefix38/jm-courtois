@@ -1,8 +1,11 @@
 node_modules
+.docker_node_modules
 dist
 .cache
 .tmp
 .strapi
 build
 public/uploads
+.env
+.env.*
 *.log

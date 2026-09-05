@@ -1,0 +1,28 @@
+# ── Build ─────────────────────────────────────────────────────────────────────
+FROM node:20-alpine AS build
+RUN apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev git
+
+WORKDIR /usr/app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+ENV NODE_ENV=production
+RUN npm run build
+
+# ── Production ────────────────────────────────────────────────────────────────
+FROM node:20-alpine AS production
+RUN apk add --no-cache vips-dev
+
+WORKDIR /usr/app
+ENV NODE_ENV=production
+
+COPY --from=build --chown=node:node /usr/app ./
+# public/uploads est exclu du build context (données, pas du code) : le créer ici pour le point de montage du volume prod
+RUN mkdir -p public/uploads && chown -R node:node public/uploads
+
+USER node
+EXPOSE 1337
+CMD ["npm", "run", "start"]
