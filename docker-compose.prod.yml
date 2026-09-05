@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     # Le proxy déjà en place sur le serveur (ports 80/443 + certbot) route vers ce port loopback
     ports:
-      - "127.0.0.1:${NGINX_PROD_PORT:-8095}:80"
+      - "0.0.0.0:${NGINX_PROD_PORT:-8095}:80"
     volumes:
       - ./nginx/conf.d.prod:/etc/nginx/conf.d:ro
     depends_on:
