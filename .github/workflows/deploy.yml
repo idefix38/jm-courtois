@@ -67,6 +67,7 @@ jobs:
   deploy:
     needs: [build-frontend, build-cms]
     runs-on: ubuntu-latest
+    environment: Prod-Obelix
     steps:
       - name: Déploiement via SSH
         uses: appleboy/ssh-action@v1
