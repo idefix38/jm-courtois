@@ -45,9 +45,9 @@ services:
     image: postgres:17
     restart: unless-stopped
     env_file: .env.production
-    # Bind loopback-only : accès via tunnel SSH (`ssh -L 5432:127.0.0.1:5432 ...`), jamais exposé sur le LAN directement
+    # Port hôte 5433 (5432 déjà pris sur obelix) : accès via tunnel SSH (`ssh -L 5432:127.0.0.1:5433 ...`), jamais exposé sur le LAN directement
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:5433:5432"
     volumes:
       - postgres-prod-data:/var/lib/postgresql/data
     networks:
