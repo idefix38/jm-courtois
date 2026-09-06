@@ -22,6 +22,7 @@ ENV NODE_ENV=production
 COPY --from=build --chown=node:node /usr/app ./
 # public/uploads est exclu du build context (données, pas du code) : le créer ici pour le point de montage du volume prod
 RUN mkdir -p public/uploads && chown -R node:node public/uploads
+RUN mkdir -p /usr/app/database/migrations && chown -R node:node /usr/app/database
 
 USER node
 EXPOSE 1337
