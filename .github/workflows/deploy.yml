@@ -76,6 +76,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
+          # Diagnostic temporaire de l'échec d'authentification SSH — à retirer une fois résolu
+          debug: true
           script: |
             set -e
             cd "${{ vars.DEPLOY_PATH }}"
