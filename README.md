@@ -1,5 +1,10 @@
 # jm-courtois
 
+## Démarrage rapide
+
+- `npm run dev` : lance la stack de développement (`docker-compose.yml`), avec hot-reload cms/frontend.
+- `npm run prod` : lance la stack de production (`docker-compose.prod.yml`) en local, à partir du `.env.production` racine.
+
 ## Déploiement en production
 
 Le site est prévu pour tourner en conteneurs Docker sur un serveur qui héberge déjà d'autres sites (reverse-proxy + certbot existants). Le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) construit les images `frontend` et `cms`, les pousse sur `ghcr.io`, puis se connecte en SSH au serveur pour les déployer.
@@ -8,8 +13,11 @@ Le site est prévu pour tourner en conteneurs Docker sur un serveur qui héberge
 
 1. Cloner le repo à l'emplacement prévu (`DEPLOY_PATH`).
 2. Créer `.env.production` (racine), `cms/.env.production` et `frontend/.env.production` à partir des fichiers `*.env.production.example` correspondants, avec des secrets de production **différents** de ceux du `.env` de dev (APP_KEYS, JWT secrets, mots de passe DB...). `PREVIEW_SECRET` doit être identique côté `cms` et `frontend`.
-3. Ajouter deux server blocks au reverse-proxy déjà en place, pointant vers le port loopback exposé par notre `nginx` (`127.0.0.1:${NGINX_PROD_PORT:-8090}` par défaut), pour `www.jm-courtois.com` et `cms.jm-courtois.com`, puis générer les certificats via le certbot déjà installé.
-4. Premier démarrage manuel : `docker compose --env-file .env.production -f docker-compose.prod.yml up -d`.
+3. Ajouter deux server blocks au reverse-proxy déjà en place, pointant vers le port loopback exposé par notre `nginx` (`127.0.0.1:${NGINX_PROD_PORT:-8095}` par défaut), pour `www.jm-courtois.com` et `cms.jm-courtois.com`, puis générer les certificats via le certbot déjà installé.
+4. Premier démarrage manuel : `docker compose --env-file .env.production -f docker-compose.prod.yml up -d` (ou `npm run prod`).
+
+   Postgres est publié en loopback sur le port hôte `5433` (`5432` étant déjà pris par un autre conteneur sur le serveur). Pour s'y connecter depuis un poste du réseau local via SSH : `ssh -N -L 5432:127.0.0.1:5433 <user>@<host>`, puis connecter un client DB sur `localhost:5432`.
+
 5. Créer le compte admin Strapi sur `https://cms.jm-courtois.com/admin`, générer un token API de production (Settings > API Tokens) et le renseigner dans `frontend/.env.production` (`STRAPI_API_TOKEN`), puis `docker compose --env-file .env.production -f docker-compose.prod.yml up -d frontend`.
 
 ### Secrets GitHub à configurer (Settings > Secrets and variables > Actions)
