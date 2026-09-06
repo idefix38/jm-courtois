@@ -20,9 +20,10 @@ services:
     environment:
       - DATABASE_HOST=postgres
       - DATABASE_PORT=5432
-      - DATABASE_NAME=${POSTGRES_DB:-jm-courtois}
-      - DATABASE_USERNAME=${POSTGRES_USER:-user}
-      - DATABASE_PASSWORD=${POSTGRES_PASSWORD:-password}
+      # Pas de valeur par défaut : échoue au démarrage plutôt que de retomber silencieusement sur des identifiants faibles
+      - DATABASE_NAME=${POSTGRES_DB:?POSTGRES_DB manquant (voir .env.production)}
+      - DATABASE_USERNAME=${POSTGRES_USER:?POSTGRES_USER manquant (voir .env.production)}
+      - DATABASE_PASSWORD=${POSTGRES_PASSWORD:?POSTGRES_PASSWORD manquant (voir .env.production)}
     volumes:
       - cms-uploads:/usr/app/public/uploads
     depends_on:
@@ -44,6 +45,9 @@ services:
     image: postgres:17
     restart: unless-stopped
     env_file: .env.production
+    # Bind loopback-only : accès via tunnel SSH (`ssh -L 5432:127.0.0.1:5432 ...`), jamais exposé sur le LAN directement
+    ports:
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres-prod-data:/var/lib/postgresql/data
     networks:
