@@ -113,9 +113,11 @@ export async function POST(request: NextRequest) {
         });
 
         if (error) {
+            console.error('Resend error:', error);
             return NextResponse.json({ error: "L'envoi de l'e-mail a échoué. Veuillez réessayer plus tard." }, { status: 502 });
         }
-    } catch {
+    } catch (err) {
+        console.error('Resend exception:', err);
         return NextResponse.json({ error: "L'envoi de l'e-mail a échoué. Veuillez réessayer plus tard." }, { status: 502 });
     }
 

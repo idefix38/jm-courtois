@@ -8,6 +8,14 @@
         "Authorization": "Bearer f0bc83774018e218e7aa09c24c21718fdeada9bd223c4901a6c760349bb27821306418ad07c2e15362bcd5dd5bf66a3d350ce697f6810dc209e12861bbe911d2fceb8f388ec7e57937cfff28ee2e0e39d3922372ea9ea6c372bad161ab028642cbcd182daf509a30daa91f5e965779b73ba99e3eaaf1b9b8d19c45356bdf1d0a"
       }
     },
+    "jmc-strapi-prod": {
+      "url": "https://cms.jm-courtois.com/mcp",
+      "type": "http",
+      "headers": {
+        // Créer un Admin Token et non un Api Token pour pouvoir accéder à l'API MCP
+        "Authorization": "Bearer 97cf107f075b2a5cd44a857964f5acf2b70edc7acb2c96c0dae84d43da1801e13505c950cff665a0334ccd18023a1814f54f50ebf8ebbdd562a86f5da1b9851163069586f5309ecc62d0641bb401c2fe2c02e3d974dd1257225fac22f4a05174671a8796d1fb6b1cacc5a0022fc80961d56218f00df3de76fadcc0595a738e9e"
+      }
+    },
   },
   "inputs": []
 }
