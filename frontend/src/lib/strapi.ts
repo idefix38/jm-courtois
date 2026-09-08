@@ -20,10 +20,13 @@ interface FetchOptions {
     pagination?: { page?: number; pageSize?: number };
     fields?: string[];
     status?: 'draft' | 'published';
+    /** Tag de cache Next.js, utilisé pour invalider ce contenu à la demande (voir /api/revalidate) */
+    tag?: string;
 }
 
 async function fetchAPI<T>(path: string, options: FetchOptions = {}): Promise<T> {
-    const queryString = qs.stringify(options, { encodeValuesOnly: true });
+    const { tag, ...strapiParams } = options;
+    const queryString = qs.stringify(strapiParams, { encodeValuesOnly: true });
     const url = getStrapiURL(`/api${path}${queryString ? `?${queryString}` : ""}`);
 
     const headers: HeadersInit = { "Content-Type": "application/json" };
@@ -32,7 +35,9 @@ async function fetchAPI<T>(path: string, options: FetchOptions = {}): Promise<T>
     const res = await fetch(url, {
         headers,
         // En mode preview (brouillon), on veut toujours le contenu le plus récent, jamais de cache
-        ...(options.status === 'draft' ? { cache: 'no-store' } : { next: { revalidate: 60 } }),
+        ...(options.status === 'draft'
+            ? { cache: 'no-store' }
+            : { next: { revalidate: 3600, tags: tag ? [tag] : [] } }),
     });
 
     if (!res.ok) throw new Error(`Strapi fetch error: ${res.status} ${url}`);
@@ -63,6 +68,7 @@ export async function getHome(preview = false) {
             dynamicZone: DYNAMIC_ZONE_POPULATE,
             Seo: true,
         },
+        tag: 'home-page',
         ...(preview ? { status: 'draft' } : {}),
     });
 }
@@ -70,7 +76,7 @@ export async function getHome(preview = false) {
 export async function getMenus() {
     return fetchAPI<{ data: { Items: Array<{ id: number; Titre: string; Url: string }> } }>(
         '/menu',
-        { populate: { Items: true } }
+        { populate: { Items: true }, tag: 'menu' }
     );
 }
 
@@ -81,6 +87,7 @@ export async function getPage(slug: string) {
             Contenu: DYNAMIC_ZONE_POPULATE,
             Seo: true,
         },
+        tag: 'page',
     });
 }
 
@@ -88,6 +95,7 @@ export async function getLivres() {
     return fetchAPI("/livres", {
         populate: { Couverture: true },
         sort: ["DatePublication:desc"],
+        tag: 'livre',
     });
 }
 
@@ -95,6 +103,7 @@ export async function getLivre(slug: string, preview = false) {
     return fetchAPI("/livres", {
         filters: { Slug: { $eq: slug } },
         populate: { Couverture: true, Seo: true },
+        tag: 'livre',
         ...(preview ? { status: 'draft' } : {}),
     });
 }
@@ -102,6 +111,7 @@ export async function getLivre(slug: string, preview = false) {
 export async function getAvis() {
     return fetchAPI("/avis", {
         sort: ["Date:desc"],
+        tag: 'avi',
     });
 }
 
@@ -109,6 +119,7 @@ export async function getActualites(limit?: number) {
     return fetchAPI("/actualites", {
         populate: { Image: true },
         sort: ["Date:desc"],
+        tag: 'actualite',
         ...(limit ? { pagination: { pageSize: limit } } : {}),
     });
 }
@@ -117,5 +128,6 @@ export async function getActualite(slug: string) {
     return fetchAPI("/actualites", {
         filters: { Url: { $eq: slug } },
         populate: { Contenu: DYNAMIC_ZONE_POPULATE, Image: true },
+        tag: 'actualite',
     });
 }
