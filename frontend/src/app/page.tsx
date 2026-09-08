@@ -4,6 +4,9 @@ import { getHome } from '@/lib/strapi';
 import DynamicZone from '@/components/blocks/DynamicZone';
 import type { HomeData } from '@/types/strapi';
 
+// Forcé indépendamment du succès du fetch CMS : sans ça, un échec au build (CMS injoignable) fige la page en cache sans jamais revalider
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const res = await getHome() as { data: HomeData };

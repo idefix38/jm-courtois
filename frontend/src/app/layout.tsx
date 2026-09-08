@@ -10,6 +10,9 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 
 const GTM_CONTAINER_ID = process.env.GTM_CONTAINER_ID;
 
+// Forcé indépendamment du succès du fetch CMS : sans ça, un échec au build (CMS injoignable) fige la page en cache sans jamais revalider
+export const revalidate = 60;
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',

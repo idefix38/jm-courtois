@@ -39,6 +39,9 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// Forcé indépendamment du succès du fetch CMS : sans ça, un échec au build (CMS injoignable) fige la page en cache sans jamais revalider
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   try {
     const res = await getActualites() as { data: ActualiteData[] };
