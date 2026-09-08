@@ -76,12 +76,16 @@ jobs:
           port: ${{ secrets.SSH_PORT || 22 }}
           # Diagnostic temporaire de l'échec d'authentification SSH — à retirer une fois résolu
           #debug: true
+          envs: DEPLOY_REF
           script: |
             set -e
             cd "${{ vars.DEPLOY_PATH }}"
-            git fetch origin main
-            git reset --hard origin/main
+            # Déploie la branche sélectionnée au lancement du workflow ("Use workflow from"), pas toujours main
+            git fetch origin "$DEPLOY_REF"
+            git checkout -B "$DEPLOY_REF" FETCH_HEAD
             export IMAGE_TAG=${{ github.sha }}
             docker compose --env-file .env.production -f docker-compose.prod.yml pull
             docker compose --env-file .env.production -f docker-compose.prod.yml up -d --remove-orphans
             docker image prune -f
+        env:
+          DEPLOY_REF: ${{ github.ref_name }}
