@@ -12,6 +12,10 @@ import {
 import { getPluginPresets } from '@_sh/strapi-plugin-ckeditor';
 
 export default {
+  config: {
+    // Interface admin en français uniquement
+    locales: ['fr'],
+  },
   register() {
     // Editeur simplifié : sélection paragraphe/titre, gras, italique, souligné, hr, lien, liste à puces
     const presets = getPluginPresets();
