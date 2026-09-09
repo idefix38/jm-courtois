@@ -6,6 +6,159 @@
   "locale": null,
   "permissions": [
     {
+      "documentId": "rr4no0rdt84ajatwhgki8ogh",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "DateDebut",
+          "DateFin",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "gu8r1hfc4g0e4ljbxc1ekdtu",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "mjhtb23pwkbqhu0zylq01twz",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "grdms4enga340j0mdluzxhfp",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "DateDebut",
+          "DateFin",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "arqiqm4l8ms5co8dpbbqsbff",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::actualite.actualite",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Lieu",
+          "DateDebut",
+          "DateFin",
+          "Heure",
+          "Description",
+          "Contenu",
+          "Image"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "d9u1k3tl7vfzem46xqjjey2s",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::avi.avi",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Texte",
+          "Note",
+          "Prenom",
+          "Sexe",
+          "Date"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "b9e97912z4sota1py14xg4dd",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::avi.avi",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "p9vafw1jk9otn67wbwspldft",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::avi.avi",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "m2abhw0oz0sw5zm37f163z27",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::avi.avi",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Texte",
+          "Note",
+          "Prenom",
+          "Sexe",
+          "Date"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "us54z4rzhd4sjyy7r4yxxyeq",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::avi.avi",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Texte",
+          "Note",
+          "Prenom",
+          "Sexe",
+          "Date"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
       "documentId": "iqmlwv57lh6go573fdg71a4a",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
@@ -57,6 +210,258 @@
       "properties": {
         "fields": [
           "dynamicZone"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "sw3hco1v2kpweckhhk109nuc",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::livre.livre",
+      "properties": {
+        "fields": [
+          "Titre",
+          "SousTitre",
+          "Slug",
+          "Auteur",
+          "Editeur",
+          "DatePublication",
+          "ISBN",
+          "Resume",
+          "Couverture",
+          "Genre",
+          "NombreDePages",
+          "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
+          "Extrait",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "cc6zzj27wd1fqpb4uyqrosml",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::livre.livre",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "adluky3vm9xbmjuqyvj4n0mp",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::livre.livre",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "g2cv6gl8sjwqvg8no496man4",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::livre.livre",
+      "properties": {
+        "fields": [
+          "Titre",
+          "SousTitre",
+          "Slug",
+          "Auteur",
+          "Editeur",
+          "DatePublication",
+          "ISBN",
+          "Resume",
+          "Couverture",
+          "Genre",
+          "NombreDePages",
+          "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
+          "Extrait",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "h3ebhkhbx77gxxq23xk271gh",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::livre.livre",
+      "properties": {
+        "fields": [
+          "Titre",
+          "SousTitre",
+          "Slug",
+          "Auteur",
+          "Editeur",
+          "DatePublication",
+          "ISBN",
+          "Resume",
+          "Couverture",
+          "Genre",
+          "NombreDePages",
+          "Langue",
+          "LienAmazon",
+          "LienFnac",
+          "LienEditeur",
+          "UrlSiteEditeur",
+          "Extrait",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "asp1ce8r6ufvndyod0yfn2j5",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::menu.menu",
+      "properties": {
+        "fields": [
+          "Items.Titre",
+          "Items.Url"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "wc3x5bpr7sjuk5plq0tlczjv",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::menu.menu",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "dkq14xo4sdi1bacmb6mpy1ms",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::menu.menu",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "kfmlm0351uybjy6tlesob49y",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::menu.menu",
+      "properties": {
+        "fields": [
+          "Items.Titre",
+          "Items.Url"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "w4kugurh50wuuhcad2kr01ws",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::menu.menu",
+      "properties": {
+        "fields": [
+          "Items.Titre",
+          "Items.Url"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "mrx2qp3lf192dro1czwg80vc",
+      "action": "plugin::content-manager.explorer.create",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Contenu",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "cwiqnhahzoyhsxakfzmrk9la",
+      "action": "plugin::content-manager.explorer.delete",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "mg8frsglv8pe0ypv324dniis",
+      "action": "plugin::content-manager.explorer.publish",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {},
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "j5bwuqasg8zkvfubl35ekv9l",
+      "action": "plugin::content-manager.explorer.read",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Contenu",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
+        ]
+      },
+      "conditions": [],
+      "locale": null
+    },
+    {
+      "documentId": "trh4ljq1rj2da7ihauy92vqf",
+      "action": "plugin::content-manager.explorer.update",
+      "actionParameters": {},
+      "subject": "api::page.page",
+      "properties": {
+        "fields": [
+          "Titre",
+          "Url",
+          "Contenu",
+          "Seo.metaTitle",
+          "Seo.metaDescription",
+          "Seo.canonicalURL",
+          "Seo.metaRobots"
         ]
       },
       "conditions": [],
