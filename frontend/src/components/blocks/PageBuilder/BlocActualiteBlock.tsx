@@ -9,8 +9,11 @@ export default function BlocActualiteBlock({ block }: { block: BlocActualiteBloc
   const actualite = block.Actualite;
   if (!actualite) return null;
 
-  const date = new Date(actualite.Date);
-  const dateLabel = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  const date = new Date(actualite.DateDebut);
+  const dateFin = actualite.DateFin ? new Date(actualite.DateFin) : null;
+  const dateLabel = dateFin && dateFin.getTime() !== date.getTime()
+    ? `du ${date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} au ${dateFin.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`
+    : date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   const imageUrl = getStrapiMedia(actualite.Image?.url ?? null);
 
   return (
@@ -19,7 +22,7 @@ export default function BlocActualiteBlock({ block }: { block: BlocActualiteBloc
 
         {/* Ligne 1 : date + titre */}
         <div className="flex items-center gap-4 md:gap-6">
-          <DateSquare date={date} />
+          <DateSquare date={date} dateFin={dateFin} />
           <h1 className="flex-1 text-center font-serif text-2xl md:text-4xl text-vert-profond leading-tight">
             {actualite.Titre}
           </h1>

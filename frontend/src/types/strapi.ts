@@ -192,7 +192,8 @@ export interface ActualiteData {
     Titre: string;
     Url: string;
     Lieu?: string | null;
-    Date: string;
+    DateDebut: string;
+    DateFin?: string | null;
     Heure?: string | null;
     Description: string;
     Contenu: Block[];

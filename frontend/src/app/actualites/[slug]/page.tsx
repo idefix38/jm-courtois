@@ -18,7 +18,8 @@ function buildEventJsonLd(actualite: ActualiteData) {
     '@context': 'https://schema.org',
     '@type': 'LiteraryEvent',
     name: actualite.Titre,
-    startDate: actualite.Date,
+    startDate: actualite.DateDebut,
+    endDate: actualite.DateFin ?? undefined,
     description: stripHtml(actualite.Description),
     location: actualite.Lieu
       ? { '@type': 'Place', name: actualite.Lieu }

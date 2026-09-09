@@ -349,21 +349,21 @@
       "edit": [
         [
           {
-            "name": "Slug",
-            "size": 6
-          },
-          {
-            "name": "Auteur",
-            "size": 6
-          }
-        ],
-        [
-          {
             "name": "Titre",
             "size": 6
           },
           {
             "name": "SousTitre",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "Slug",
+            "size": 6
+          },
+          {
+            "name": "Auteur",
             "size": 6
           }
         ],

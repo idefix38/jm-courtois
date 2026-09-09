@@ -24,9 +24,12 @@
     "Lieu": {
       "type": "string"
     },
-    "Date": {
+    "DateDebut": {
       "type": "date",
       "required": true
+    },
+    "DateFin": {
+      "type": "date"
     },
     "Heure": {
       "type": "string"

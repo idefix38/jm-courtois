@@ -75,6 +75,7 @@
       "list": [
         "id",
         "Titre",
+        "Description",
         "EmailDestination"
       ],
       "edit": [
@@ -82,12 +83,10 @@
           {
             "name": "Titre",
             "size": 6
-          }
-        ],
-        [
+          },
           {
             "name": "Description",
-            "size": 12
+            "size": 6
           }
         ],
         [

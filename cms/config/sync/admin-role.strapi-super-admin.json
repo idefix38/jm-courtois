@@ -160,7 +160,7 @@
       "locale": null
     },
     {
-      "documentId": "tk3c81nw6l7hsl5yqgfljala",
+      "documentId": "wfp2qaay7djz65r4kb13pupd",
       "action": "plugin::content-manager.explorer.create",
       "actionParameters": {},
       "subject": "api::actualite.actualite",
@@ -169,7 +169,8 @@
           "Titre",
           "Url",
           "Lieu",
-          "Date",
+          "DateDebut",
+          "DateFin",
           "Heure",
           "Description",
           "Contenu",
@@ -198,7 +199,7 @@
       "locale": null
     },
     {
-      "documentId": "ordt5dk23zye15wscu5ckozd",
+      "documentId": "oh1nlbm4ojhcr38hg2usma2t",
       "action": "plugin::content-manager.explorer.read",
       "actionParameters": {},
       "subject": "api::actualite.actualite",
@@ -207,7 +208,8 @@
           "Titre",
           "Url",
           "Lieu",
-          "Date",
+          "DateDebut",
+          "DateFin",
           "Heure",
           "Description",
           "Contenu",
@@ -218,7 +220,7 @@
       "locale": null
     },
     {
-      "documentId": "a7exzbsjtyvjpqdkxtsrj0n2",
+      "documentId": "h7g59513oo8k124c9m94ee66",
       "action": "plugin::content-manager.explorer.update",
       "actionParameters": {},
       "subject": "api::actualite.actualite",
@@ -227,7 +229,8 @@
           "Titre",
           "Url",
           "Lieu",
-          "Date",
+          "DateDebut",
+          "DateFin",
           "Heure",
           "Description",
           "Contenu",

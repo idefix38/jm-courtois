@@ -62,16 +62,30 @@
           "sortable": true
         }
       },
-      "Date": {
+      "DateDebut": {
         "edit": {
-          "label": "Date",
+          "label": "DateDebut",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "Date",
+          "label": "DateDebut",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "DateFin": {
+        "edit": {
+          "label": "DateFin",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "DateFin",
           "searchable": true,
           "sortable": true
         }
@@ -219,13 +233,19 @@
         ],
         [
           {
-            "name": "Date",
+            "name": "DateDebut",
+            "size": 4
+          },
+          {
+            "name": "DateFin",
             "size": 4
           },
           {
             "name": "Heure",
             "size": 4
-          },
+          }
+        ],
+        [
           {
             "name": "Lieu",
             "size": 4
@@ -248,7 +268,7 @@
         "id",
         "Titre",
         "Lieu",
-        "Date"
+        "DateDebut"
       ]
     },
     "uid": "api::actualite.actualite"

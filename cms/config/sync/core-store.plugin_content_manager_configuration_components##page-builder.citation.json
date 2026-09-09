@@ -48,6 +48,34 @@
           "sortable": false
         }
       },
+      "Bouton": {
+        "edit": {
+          "label": "Bouton",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Bouton",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "Style": {
+        "edit": {
+          "label": "Style",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "Style",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "documentId": {
         "edit": {},
         "list": {
@@ -60,7 +88,9 @@
     "layouts": {
       "list": [
         "id",
-        "Titre"
+        "Titre",
+        "Bouton",
+        "Style"
       ],
       "edit": [
         [
@@ -73,6 +103,18 @@
           {
             "name": "Description",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Bouton",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "Style",
+            "size": 6
           }
         ]
       ]

@@ -6,7 +6,8 @@ import BoutonCta from '@/components/ui/BoutonCta';
 import DateSquare from '@/components/ui/DateSquare';
 
 export default function ActualiteCard({ actualite }: { actualite: ActualiteData }) {
-  const date = new Date(actualite.Date);
+  const date = new Date(actualite.DateDebut);
+  const dateFin = actualite.DateFin ? new Date(actualite.DateFin) : null;
   const imageUrl = getStrapiMedia(actualite.Image?.url ?? null);
   const href = `/actualites/${actualite.Url}`;
 
@@ -15,7 +16,7 @@ export default function ActualiteCard({ actualite }: { actualite: ActualiteData 
 
       {/* Colonne 1 : date, taille fixe */}
       <Link href={href}>
-        <DateSquare date={date} />
+        <DateSquare date={date} dateFin={dateFin} />
       </Link>
 
       {/* Colonne 2 : titre, lieu, lien */}

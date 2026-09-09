@@ -118,7 +118,7 @@ export async function getAvis() {
 export async function getActualites(limit?: number) {
     return fetchAPI("/actualites", {
         populate: { Image: true },
-        sort: ["Date:desc"],
+        sort: ["DateDebut:desc"],
         tag: 'actualite',
         ...(limit ? { pagination: { pageSize: limit } } : {}),
     });
